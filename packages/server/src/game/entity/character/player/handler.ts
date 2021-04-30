@@ -131,6 +131,7 @@ class Handler {
         });
 
         this.player.onTalkToNPC((npc: NPC) => {
+            log.info('talk to npc'); 
             if (this.player.quests.isQuestNPC(npc)) {
                 this.player.quests.getQuestByNPC(npc).triggerTalk(npc);
 

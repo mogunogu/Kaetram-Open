@@ -15,8 +15,16 @@ export default Object.assign(config, {
     devtool: 'inline-source-map',
     module: { rules },
     devServer: {
-        host: 'localhost',
-        port: 9000
+        host: '127.0.0.1',
+        port: 9000,
+        proxy: {
+            '^/server': {
+                target: 'http://127.0.0.1:9001/server',
+                ws: true,
+                changeOrigin: true,
+                secure: false
+            }
+        }
     },
     plugins
 } as Configuration);

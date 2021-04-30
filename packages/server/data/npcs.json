@@ -1,61 +1,61 @@
 {
   "King": {
     "id": 45,
-    "name": "King"
+    "name": "국왕"
   },
 
   "VillageGirl": {
-    "name": "Azaria",
+    "name": "아자리아",
     "id": 1,
     "text": ["Who are you?", "I feel as if we've met before, but I cannot remember."]
   },
 
   "Villager": {
     "id": 2,
-    "name": "Bulk Bogan",
+    "name": "벌크 보건",
     "text": ["Thank you kindly for the help, dear adventurer.", "I will ensure to contact you in the",
           "nearby future regarding further adventures."]
   },
 
   "BeachNpc": {
     "id": 3,
-    "name": "Bubba",
+    "name": "부바",
     "text": ["Well, thanks for the help.", "Not really doing much but thanks regardless."]
   },
 
   "Agent": {
     "id": 4,
-    "name": "Secret Agent"
+    "name": "비밀요원"
   },
 
   "Nyan": {
     "id": 5,
-    "name": "Nyan Cat (Stale Meme)"
+    "name": "냥캣"
   },
 
   "Rick": {
     "id": 6,
-    "name": "Rick"
+    "name": "릭"
   },
 
   "Priest": {
     "id": 7,
-    "name": "Priest"
+    "name": "사제"
   },
 
   "Guard": {
     "id": 8,
-    "name": "Guard"
+    "name": "경비원"
   },
 
   "Scientist": {
     "id": 9,
-    "name": "Scientist"
+    "name": "과학자"
   },
 
   "DesertNpc": {
     "id": 10,
-    "name": "Billey"
+    "name": "빌리"
   },
 
   "LavaNpc": {
@@ -65,81 +65,77 @@
 
   "Boxingman": {
     "id": 12,
-    "name": "Mike Tyson",
+    "name": "권투선수",
     "text": "Woosh."
   },
 
   "Vampire": {
     "id": 13,
-    "name": "Vampire"
+    "name": "뱀파이어"
   },
 
   "Doctor": {
     "id": 14,
-    "name": "Doctor"
+    "name": "박사"
   },
 
   "Oddeyecat": {
     "id": 15,
-    "name": "Odd-Eyed Cat"
+    "name": "오드아이 고양이"
   },
 
   "Sorcerer": {
     "id": 16,
-    "name": "Sorcerer"
+    "name": "마법사"
   },
 
   "Coder": {
     "id": 17,
-    "name": "Programmer",
-    "text": ["Oh.. This is awkward...", "You may be wondering why I'm here as well.", "Well just letting you know..",
-            "It's definitely not because we're running low on pixel art..", "Regardless.. If you want to join the community",
+    "name": "개발자",
+    "text": ["... 엇! 안녕하세요!", "아직 이게임은 제작중이랍니다..", "미완성인부분이 많아요....",
+            "버그나 건의사항은 오픈톡에 참여해서 저에게 말씀해주세요!", "<a target=\"_blank\" href=\"https://open.kakao.com/o/sYkUMVZc\">이곳</a>을 클릭해주세요!",
             "Our Discord <a target=\"_blank\" href=\"https://discord.gg/MmbGAaw\">is available here!</a>"]
   },
 
   "ForestNpc": {
     "id": 18,
-    "name": "Forester"
+    "name": "포레스터"
   },
 
   "Octocat": {
     "id": 19,
-    "name": "Octocat",
-    "text": ["Hey there!",
-            "I am the Octocat, the programmer and I",
-            "are very well acquainted.",
-            "In case you did not know, Kaetram is completely open-source.",
-            "You can <a target=\"_blank\" href=\"https://github.com/Kaetram/Kaetram-Open\">check out the source on GitHub!</a>"]
+    "name": "옥토캣",
+    "text": ["냐앙~~"]
   },
 
   "Soldier": {
     "id": 20,
-    "name": "Soldier"
+    "name": "병사"
   },
 
   "Fisherman": {
     "id": 21,
-    "name": "Fisherman"
+    "name": "낚시꾼"
   },
 
   "Octopus": {
     "id": 22,
-    "name": "Octopus"
+    "name": "문어"
   },
 
   "Mermaidnpc": {
     "id": 23,
-    "name": "Mermaid"
+    "name": "인어"
   },
 
   "Sponge": {
     "id": 24,
-    "name": "Picklebob"
+    "name": "피클밥"
   },
 
   "Fairynpc": {
     "id": 25,
-    "name": "Fairy"
+    "name": "요정"
   },
 
   "Shepherdboy": {
@@ -149,13 +145,13 @@
 
   "Zombiegf": {
     "id": 27,
-    "name": "Zombie Girlfriend"
+    "name": "좀비 여자친구"
   },
 
   "Pirategirlnpc": {
     "id": 28,
-    "name": "Pirate Girl",
-    "text": ["Hi"]
+    "name": "해적",
+    "text": ["안녕?"]
   },
 
   "Bluebikinigirlnpc": {

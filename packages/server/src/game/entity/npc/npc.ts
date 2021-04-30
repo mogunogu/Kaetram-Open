@@ -13,6 +13,7 @@ class NPC extends Entity {
     }
 
     talk(messages?: any, player?: Player) {
+
         if (!player) return;
 
         if (player.npcTalk !== this.id) {

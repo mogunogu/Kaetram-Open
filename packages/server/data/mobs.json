@@ -1,6 +1,6 @@
 {
   "Rat": {
-    "name": "Rat",
+    "name": "쥐",
     "id": 128,
     "drops": {"flask": 10},
     "hitPoints": 30,
@@ -17,7 +17,7 @@
   },
 
   "Bat": {
-    "name": "Batterfly",
+    "name": "박쥐",
     "id": 1,
     "drops": {"flask": 50},
     "hitPoints": 45,
@@ -69,7 +69,7 @@
   },
 
   "Goblin": {
-    "name": "Goblin",
+    "name": "고블린",
     "id": 4,
     "drops": {"leatherarmor": 100, "plasticbow": 100, "gold": 500, "leatherarcherarmor": 100, "sword2": 100},
     "hitPoints": 70,
