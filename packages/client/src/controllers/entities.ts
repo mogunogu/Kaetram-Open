@@ -45,10 +45,10 @@ export default class EntitiesController {
     public constructor(private game: Game) {}
 
     public async load(): Promise<void> {
-        this.game.app.sendStatus('Loading sprites');
+        this.game.app.sendStatus('스프라이트 로딩');
 
         if (!this.sprites) {
-            const sprites = new SpritesController();
+            const sprites = new SpritesController(this.game);
             await sprites.load();
 
             this.sprites = sprites;
@@ -56,7 +56,7 @@ export default class EntitiesController {
             this.game.input?.loadCursors();
         }
 
-        this.game.app.sendStatus('Loading grids');
+        this.game.app.sendStatus('그리드 로딩중 ..');
 
         this.grids ||= new Grids(this.game.map as Map);
     }

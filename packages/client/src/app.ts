@@ -74,7 +74,7 @@ export default class App {
     // orientation: string;
 
     public constructor() {
-        this.sendStatus('Initializing the main app');
+        this.sendStatus('앱 초기화중 ..');
 
         // this.updateOrientation();
         this.load();
@@ -313,12 +313,12 @@ export default class App {
                 if (this.loginFields.length === 0) this.loginFields = [nameInput, passwordInput];
 
                 if (!nameInput.val() && !this.isGuest()) {
-                    this.sendError(nameInput, 'Please enter a username.');
+                    this.sendError(nameInput, '유저명을 입력해주세요.');
                     return false;
                 }
 
                 if (!passwordInput.val() && !this.isGuest()) {
-                    this.sendError(passwordInput, 'Please enter a password.');
+                    this.sendError(passwordInput, '패스워드를 입력해주세요.');
                     return false;
                 }
 

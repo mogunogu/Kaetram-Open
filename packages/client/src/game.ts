@@ -127,7 +127,7 @@ export default class Game {
             entities = document.querySelector('#entities') as HTMLCanvasElement,
             cursor = document.querySelector('#cursor') as HTMLCanvasElement;
 
-        this.app.sendStatus('Initializing render engine');
+        this.app.sendStatus('렌더링 엔진 초기화중..');
 
         this.setRenderer(
             new Renderer(background, entities, foreground, overlay, textCanvas, cursor, this)
@@ -137,21 +137,21 @@ export default class Game {
     private loadControllers(): void {
         const hasWorker = this.app.hasWorker();
 
-        this.app.sendStatus('Loading local storage');
+        this.app.sendStatus('로컬 저장소 로딩중 ..');
 
         this.setStorage(new Storage(this.app));
 
-        this.app.sendStatus(hasWorker ? 'Loading maps - asynchronous' : null);
+        this.app.sendStatus(hasWorker ? '맵 로딩 - 비동기' : null);
 
         if (hasWorker) this.loadMap();
 
-        this.app.sendStatus('Initializing network socket');
+        this.app.sendStatus('네크워크 소켓 초기화중 .. ');
 
         this.setSocket(new Socket(this));
         this.setMessages(this?.socket?.messages || null);
         this.setInput(new InputController(this));
 
-        this.app.sendStatus('Loading controllers');
+        this.app.sendStatus('컨트롤러 로딩중 ..');
 
         this.setEntityController(new EntitiesController(this));
 
@@ -179,14 +179,14 @@ export default class Game {
 
             if (!this.isDebug()) map.loadRegionData();
 
-            this.app.sendStatus('Loading the pathfinder');
+            this.app.sendStatus('길찾기 시스템 로딩중 .. ');
 
             this.setPathfinder(new Pathfinder(map.width, map.height));
 
             this.renderer?.setMap(map);
             this.renderer?.loadCamera();
 
-            this.app.sendStatus('Loading updater');
+            this.app.sendStatus('업데이터 로딩중 ..');
 
             this.setUpdater(new Updater(this));
 

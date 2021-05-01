@@ -3,6 +3,7 @@ import _ from 'lodash';
 import spriteData from '../../data/sprites.json';
 import Animation from '../entity/animation';
 import Sprite from '../entity/sprite';
+import type Game from '../game';
 import log from '../lib/log';
 
 import type { SpriteData } from '../entity/sprite';
@@ -11,11 +12,13 @@ export default class SpritesController {
     public sprites: { [id: string]: Sprite } = {};
     public sparksAnimation!: Animation;
 
-    public constructor() {
+    public constructor(private game: Game) {
         this.loadAnimations();
     }
 
     public async load(): Promise<void> {
+        const allCount = spriteData.length
+        let count = 0;
         await Promise.all(
             spriteData.map(async (data: SpriteData) => {
                 const sprite = new Sprite(data);
@@ -23,6 +26,8 @@ export default class SpritesController {
                 await sprite.loadSprite();
 
                 this.sprites[data.id] = sprite;
+                count ++
+                this.game.app.sendStatus(`스프라이트 로딩 ${count} / ${allCount}`);
             })
         );
 

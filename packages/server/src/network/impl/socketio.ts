@@ -22,8 +22,8 @@ export default class SocketIO extends WebSocket {
         });
 
         this.server.on('connection', (socket: Socket) => {
-            if (socket.handshake.headers['cf-connecting-ip'])
-                socket.conn.remoteAddress = socket.handshake.headers['cf-connecting-ip'];
+            if (socket.handshake.headers['x-forwarded-for'])
+                socket.conn.remoteAddress = socket.handshake.headers['x-forwarded-for'];
 
             log.info(`Received connection from: ${socket.conn.remoteAddress}.`);
 

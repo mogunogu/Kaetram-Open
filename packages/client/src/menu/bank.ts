@@ -23,7 +23,7 @@ export default class Bank {
 
         this.player = game.player;
 
-        this.body = $('#bank');
+        this.body = $('');
         this.bankSlots = $('#bankSlots');
         this.bankInventorySlots = $('#bankInventorySlots');
 
