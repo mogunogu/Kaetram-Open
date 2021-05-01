@@ -14,7 +14,8 @@
         "lint": "eslint packages/**/*.ts",
         "test": "yarn packages test",
         "helper": "yarn packages helper",
-        "map": "yarn packages map"
+        "map": "yarn packages map",
+        "client": "yarn workspace @kaetram/client start --host 0.0.0.0"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^4.22.0",

@@ -213,12 +213,12 @@ export default class App {
             this.updateRange($(input))
         );
 
-        if (!this.config.debug)
-            $.ajax({
-                url: 'https://c6.patreon.com/becomePatronButton.bundle.js',
-                dataType: 'script',
-                async: true
-            });
+        // if (!this.config.debug)
+        //     $.ajax({
+        //         url: 'https://c6.patreon.com/becomePatronButton.bundle.js',
+        //         dataType: 'script',
+        //         async: true
+        //     });
     }
 
     public ready(): void {
