@@ -63,8 +63,8 @@ class API {
             this.handleChat(request, response);
         });
 
-        router.get('/players', (request: any, response: any) => {
-            this.handlePlayers(request, response);
+        router.get('/checkemail', (request: any, response: any) => {
+            this.handleCheckEmail(request, response);
         });
     }
 
@@ -152,6 +152,11 @@ class API {
         response.json(players);
     }
 
+    
+    handleCheckEmail(request: any, response: any) {
+        request.query.key
+    }
+
     pingHub() {
         let url = this.getUrl('ping'),
             data = {
@@ -234,6 +239,7 @@ class API {
             }
         });
     }
+
 
     verifyToken(token: string) {
         return token === config.accessToken;

@@ -143,7 +143,7 @@ export default class Messages {
                 break;
 
             case 'userexists':
-                this.app.sendError(null, 'The username you have chosen already exists.');
+                this.app.sendError(null, '이미 존재하는 유저명입니다.');
                 break;
 
             case 'emailexists':
@@ -155,7 +155,7 @@ export default class Messages {
                 break;
 
             case 'invalidlogin':
-                this.app.sendError(null, 'You have entered the wrong username or password.');
+                this.app.sendError(null, '유저명 혹은 패스워드를 잘못 입력하셨습니다.');
                 break;
 
             case 'toofast':

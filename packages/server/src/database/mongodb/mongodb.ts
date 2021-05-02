@@ -33,7 +33,7 @@ class MongoDB {
         this.connection = null;
     }
 
-    getDatabase(callback, type?) {
+    getDatabase(callback: (database: Db) => void, type?) {
         let url = `mongodb://${this.host}:${this.port}/${this.database}`;
 
         if (config.mongodbAuth)
@@ -65,6 +65,7 @@ class MongoDB {
 
     login(player) {
         this.getDatabase((database) => {
+
             let dataCursor = database.collection('player_data').find({ username: player.username }),
                 equipmentCursor = database
                     .collection('player_equipment')

@@ -260,8 +260,7 @@ export default class Game {
 
         if (this.getStoragePassword() !== '')
             loginPassword.val(this.getStoragePassword() as string);
-
-        $('#rememberMe').prop('checked', true);
+        $('#rememberMe').find('input').prop('checked', true);
     }
 
     public findPath(

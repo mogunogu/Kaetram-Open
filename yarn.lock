@@ -3322,6 +3322,7 @@ __metadata:
     "@types/lodash": ^4.14.168
     "@types/mongodb": ^3.6.12
     "@types/node": ^14.14.39
+    "@types/nodemailer": ^6
     "@types/underscore": ^1.11.1
     bcryptjs: ^2.4.3
     body-parser: ^1.19.0
@@ -3332,6 +3333,7 @@ __metadata:
     express: ^4.17.1
     lodash: ^4.17.21
     mongodb: ^3.6.6
+    nodemailer: ^6.6.0
     request: ^2.88.2
     sanitizer: ^0.1.3
     socket.io: ^4.0.1
@@ -3801,6 +3803,15 @@ __metadata:
   version: 14.14.39
   resolution: "@types/node@npm:14.14.39"
   checksum: 57e56ceb7b8747cb8c2d83dad04f3435c8286063f58f6ebaa531e3f5dfb3c3ed6d1abbb31ec2e9d268047a68a7c45eb6d692664e059af7ebeb03519ce99f07e4
+  languageName: node
+  linkType: hard
+
+"@types/nodemailer@npm:^6":
+  version: 6.4.1
+  resolution: "@types/nodemailer@npm:6.4.1"
+  dependencies:
+    "@types/node": "*"
+  checksum: 58239d1996c0f7f5f7a9373e575e1889c7757af30064803efc2032f87d4be7a62cb87df401b8ed060f919af9606bbb7470450a44b46a53ff12041e7fac8acb8a
   languageName: node
   linkType: hard
 
@@ -10193,6 +10204,13 @@ fsevents@~2.3.1:
     has: ^1.0.3
     is: ^3.2.1
   checksum: 1fe3a1ca7fc35392f169c8a46d889d07deb201bba3a20d17df23efab509698c9639737b0c235c9be772a34035e749bae5d477f74c9e26a1b67c78bd7d6dce8e4
+  languageName: node
+  linkType: hard
+
+"nodemailer@npm:^6.6.0":
+  version: 6.6.0
+  resolution: "nodemailer@npm:6.6.0"
+  checksum: 53ab83883bf89ff10b054eca7904aecfb8e970607534af40fa69b45f96555f2cc4f017a3e7dbb820e43fb8202941dff6de2d0e3b9a682a3bd566969906ccfe45
   languageName: node
   linkType: hard
 

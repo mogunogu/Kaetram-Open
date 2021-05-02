@@ -2,7 +2,8 @@ import bcryptjs from 'bcryptjs';
 import MongoDB from './mongodb';
 import log from '../../util/log';
 import config from '../../../config';
-
+import util from '../../util/utils';
+import { callbackify } from 'node:util';
 class Creator {
     database: MongoDB;
 
@@ -122,6 +123,41 @@ class Creator {
                     log.error(`Could not save player_achievements for ${player.username}!`);
             }
         );
+    }
+
+    saveTemporaryPlayer(player, callback) {
+        this.database.getDatabase((database) => {
+            const collection = database.collection('temp_players');
+            const key = util.generateRandomString(60);
+            Creator.getPasswordHash(player.password, (hash) => {
+                collection.updateOne(
+                    {
+                        key: key
+                    },
+                    { 
+                        $set: {
+                            username: player.username,
+                            password: hash,
+                            email: player.email
+                        }
+                    },
+                    {
+                        upsert: true
+                    },
+                    (error, result) => {
+                        if (error)
+                            log.error(
+                                `An error has occurred while saving temp_player for ${player.username}!`
+                            );
+    
+                        if (!result) log.error(`Could not save temp_player for ${player.username}!`);
+
+                        callback(key)
+                    }
+                );
+            });
+        });
+
     }
 
     saveBank(collection, player) {

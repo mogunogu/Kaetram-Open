@@ -13,12 +13,14 @@ import World from '../game/world';
 import log from '../util/log';
 import config from '../../config';
 import Character from '../game/entity/character/character';
+import MongoDB from '../database/mongodb/mongodb';
+import utils from '../util/utils';
 
 class Incoming {
     player: Player;
     connection: any;
     world: World;
-    database: any;
+    database: MongoDB;
     commands: any;
 
     introduced: boolean;
@@ -135,12 +137,17 @@ class Incoming {
         });
     }
 
+    /**
+     * 로그인 처리
+     * @param message 
+     * @returns 
+     */
     handleIntro(message: Array<any>) {
         let loginType = message.shift(),
             username = message.shift().toLowerCase(),
             password = message.shift(),
             isRegistering = loginType === Packets.IntroOpcode.Register,
-            isGuest = loginType === Packets.IntroOpcode.Guest,
+            // isGuest = loginType === Packets.IntroOpcode.Guest,
             email = isRegistering ? message.shift() : '',
             formattedUsername = username
                 ? username.charAt(0).toUpperCase() + username.slice(1)
@@ -177,15 +184,21 @@ class Incoming {
                 if (result.exists) {
                     this.connection.sendUTF8(result.type + 'exists');
                     this.connection.close(result.type + ' is not available.');
-                } else this.database.register(this.player);
+                } else {
+                    this.database.creator.saveTemporaryPlayer(this.player, async (key: string)  => {
+                        await utils.sendRegistMail(this.player, key);
+                    })
+                }
+                // } else this.database.register(this.player);
             });
-        } else if (isGuest) {
-            this.player.username = 'Guest' + Utils.randomInt(0, 2000000);
-            this.player.password = null;
-            this.player.email = null;
-            this.player.isGuest = true;
+        // 게스트 플레이 없애기
+        // } else if (isGuest) {
+        //     this.player.username = 'Guest' + Utils.randomInt(0, 2000000);
+        //     this.player.password = null;
+        //     this.player.email = null;
+        //     this.player.isGuest = true;
 
-            this.database.login(this.player);
+        //     this.database.login(this.player);
         } else
             this.database.verify(this.player, (result: any) => {
                 if (result.status === 'success') this.database.login(this.player);
@@ -194,6 +207,7 @@ class Incoming {
                     this.connection.close('Wrong password entered for: ' + this.player.username);
                 }
             });
+            
     }
 
     handleReady(message: Array<any>) {

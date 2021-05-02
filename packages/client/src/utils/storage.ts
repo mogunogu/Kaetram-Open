@@ -57,7 +57,6 @@ export default class Storage {
     load(): void {
         if (storage.data) this.data = JSON.parse(storage.getItem(name));
         else this.data = this.create();
-
         if (this.data.clientVersion !== parseFloat(this.app.config.version)) {
             this.data = this.create();
             this.save();

@@ -5327,6 +5327,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/lodash", "npm:4.14.168"],
             ["@types/mongodb", "npm:3.6.12"],
             ["@types/node", "npm:14.14.39"],
+            ["@types/nodemailer", "npm:6.4.1"],
             ["@types/underscore", "npm:1.11.1"],
             ["bcryptjs", "npm:2.4.3"],
             ["body-parser", "npm:1.19.0"],
@@ -5337,6 +5338,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express", "npm:4.17.1"],
             ["lodash", "npm:4.17.21"],
             ["mongodb", "virtual:ad17e83902b100fdb17d771176a579194cd969c8e8da98aff45af4d1c776270b6d78b184c6d52eb26884acc2020f17a701f385218a205496a8e200bf7de92582#npm:3.6.6"],
+            ["nodemailer", "npm:6.6.0"],
             ["request", "npm:2.88.2"],
             ["sanitizer", "npm:0.1.3"],
             ["socket.io", "npm:4.0.1"],
@@ -5943,6 +5945,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-14.14.39-2905947c57-57e56ceb7b.zip/node_modules/@types/node/",
           "packageDependencies": [
             ["@types/node", "npm:14.14.39"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/nodemailer", [
+        ["npm:6.4.1", {
+          "packageLocation": "./.yarn/cache/@types-nodemailer-npm-6.4.1-f533871655-58239d1996.zip/node_modules/@types/nodemailer/",
+          "packageDependencies": [
+            ["@types/nodemailer", "npm:6.4.1"],
+            ["@types/node", "npm:14.10.1"]
           ],
           "linkType": "HARD",
         }]
@@ -13455,6 +13467,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node.extend", "npm:2.0.2"],
             ["has", "npm:1.0.3"],
             ["is", "npm:3.3.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["nodemailer", [
+        ["npm:6.6.0", {
+          "packageLocation": "./.yarn/cache/nodemailer-npm-6.6.0-41edd608f2-53ab83883b.zip/node_modules/nodemailer/",
+          "packageDependencies": [
+            ["nodemailer", "npm:6.6.0"]
           ],
           "linkType": "HARD",
         }]

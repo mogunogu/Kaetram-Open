@@ -4,10 +4,12 @@
  */
 
 import _ from 'lodash';
-import crypto from 'crypto';
+import crypto, { randomBytes } from 'crypto';
 
 import Packets from '../network/packets';
 import log from '../util/log';
+import Player from '../game/entity/character/player/player';
+import nodemailer from 'nodemailer';
 
 export default {
     random(range: number) {
@@ -128,13 +130,43 @@ export default {
     /**
      * Helper function to avoid repetitive instances of comparison between
      * the unix epoch minus an event. Cleans up the code a bit.
-     * 
+     *
      * @param lastEvent The event we are subtracting from current time to obtain how much
      * time has passed.
-     * @param threshold The threshold for how much time has passed in order to return true. 
+     * @param threshold The threshold for how much time has passed in order to return true.
      */
 
     timePassed(lastEvent: number, threshold: number) {
         return Date.now() - lastEvent < threshold;
+    },
+
+    generateRandomString(length) {
+        return randomBytes(length).reduce((p, i) => p + (i % 36).toString(36), '');
+    },
+
+    async sendRegistMail(player: Player, key: string) {
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            host: 'smtp.gmail.com',
+            port: 587,
+            secure: false,
+            auth: {
+                user: process.env.NODEMAILER_USER,
+                pass: process.env.NODEMAILER_PASS
+            }
+        });
+
+        // send mail with defined transport object
+        let info = await transporter.sendMail({
+            from: '케트람온라인',
+            to: player.email,
+            subject: '[케트람온라인] 이메일 주소 인증을 완료해주세요.',
+            text: `${player.username} 님 안녕하세요.\n` +
+                  `아래의 링크를 눌러 가입을 완료해주시기 바랍니다.\n\n` +
+                  `https://nekoland.online/regist/${key}`
+        });
+
+        console.log('Message sent: %s', info.messageId);
+        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
     }
 };

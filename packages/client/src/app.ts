@@ -112,9 +112,8 @@ export default class App {
 
         this.rememberMe.on('input', () => {
             if (!this.game?.storage) return;
-
+            
             const active = this.rememberMe.prop('checked');
-
             this.game.storage.toggleRemember(!active);
         });
 
@@ -342,22 +341,22 @@ export default class App {
                     ];
 
                 if (!characterName.val()) {
-                    this.sendError(characterName, 'A username is necessary you silly.');
+                    this.sendError(characterName, '유저명를 입력해주세요.');
                     return false;
                 }
 
                 if (!registerPassword.val()) {
-                    this.sendError(registerPassword, 'You must enter a password.');
+                    this.sendError(registerPassword, '비밀번호를 입력해주세요.');
                     return false;
                 }
 
                 if (registerPasswordConfirmation.val() !== registerPassword.val()) {
-                    this.sendError(registerPasswordConfirmation, 'The passwords do not match!');
+                    this.sendError(registerPasswordConfirmation, '비밀번호가 일치하지 않습니다.');
                     return false;
                 }
 
                 if (!email.val() || !this.verifyEmail(email.val() as string)) {
-                    this.sendError(email, 'An email is required!');
+                    this.sendError(email, '이메일 주소를 입력해주세요.');
                     return false;
                 }
 

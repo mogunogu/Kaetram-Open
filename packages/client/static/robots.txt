@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://kaetram.com/sitemap.xml
-Host: https://kaetram.com
+Sitemap: https://kaetram.nekoland.online/sitemap.xml
+Host: https://kaetram.nekoland.online
