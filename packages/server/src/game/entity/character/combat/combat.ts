@@ -186,7 +186,6 @@ class Combat {
     parseCheck() {
         if (this.getTime() - this.lastAction > this.lastActionThreshold) {
             this.stop();
-
             this.forget();
         }
     }
@@ -340,13 +339,11 @@ class Combat {
     getClosestAttacker() {
         let closest = null,
             lowestDistance = 100;
-
         this.forEachAttacker((attacker: Character) => {
             let distance = this.character.getDistance(attacker);
 
             if (distance < lowestDistance) closest = attacker;
         });
-
         return closest;
     }
 

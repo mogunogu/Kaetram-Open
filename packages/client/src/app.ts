@@ -107,7 +107,7 @@ export default class App {
 
         this.credits.on('click', () => this.displayScroll('credits'));
 
-        this.discord.on('click', () => window.open('https://discord.gg/MmbGAaw'));
+        this.discord.on('click', () => window.open(process.env.CHAT_URL));
 
         this.git.on('click', () => this.displayScroll('git'));
 

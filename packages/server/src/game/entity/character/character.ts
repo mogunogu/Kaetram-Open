@@ -80,7 +80,7 @@ class Character extends Entity {
         this.attackRate = 1000;
         this.healingRate = 10000;
 
-        this.spawnDistance = 7;
+        this.spawnDistance = 20;
 
         this.previousX = -1;
         this.previousY = -1;

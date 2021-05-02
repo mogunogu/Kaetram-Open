@@ -12,7 +12,7 @@
     "attackRange": 1,
     "aggressive": false,
     "attackRate": 1400,
-    "movementSpeed": 500,
+    "movementSpeed": 150,
     "spawnDelay": 10000
   },
 

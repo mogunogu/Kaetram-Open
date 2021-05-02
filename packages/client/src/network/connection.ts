@@ -592,7 +592,6 @@ export default class Connection {
                     break;
 
                 case 'toggleheal':
-                    log.info('llll');
                     this.game.player.healing = true;
                     break;
             }

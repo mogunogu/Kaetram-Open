@@ -121,7 +121,7 @@ class Entity {
     }
 
     isAdjacent(entity: Entity) {
-        return entity && this.getDistance(entity) < 2;
+        return entity && this.getDistance(entity) < 3;
     }
 
     isNonDiagonal(entity: Entity) {
