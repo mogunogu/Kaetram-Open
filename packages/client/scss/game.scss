@@ -20,6 +20,7 @@ body.game {
     #death,
     #ask,
     #about,
+    #completeRegist,
     #git {
         opacity: 0;
         transition: 0s opacity linear 0s;
@@ -30,6 +31,7 @@ body.game {
     &.death #death,
     &.ask #ask,
     &.about #about,
+    &.completeRegist #completeRegist,
     &.git #git {
         opacity: 1;
         transition: 0.5s opacity linear 0.5s;
@@ -40,6 +42,7 @@ body.game {
     &.death #parchment,
     &.ask #parchment,
     &.about #parchment,
+    &.completeRegist #completeRegist,
     &.git #parchment {
         opacity: 1;
         transition: 0.5s opacity linear 0s;
@@ -66,6 +69,7 @@ body.game {
     &.death .parchment-left,
     &.ask .parchment-left,
     &.about .parchment-left,
+    &.completeRegist .parchment-left,
     &.git .parchment-left {
         left: 0;
     }
@@ -74,6 +78,7 @@ body.game {
     &.death .parchment-right,
     &.ask .parchment-right,
     &.about .parchment-right,
+    &.completeRegist .parchment-right,
     &.git .parchment-right {
         right: 0;
     }
@@ -93,6 +98,7 @@ body.game {
         &.death .parchment-middle,
         &.ask .parchment-middle,
         &.git .parchment-middle,
+        &.completeRegist .parchment-middle,
         &.about .parchment-middle {
             width: 1038px;
             margin-left: -519px;

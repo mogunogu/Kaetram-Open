@@ -95,7 +95,8 @@ export default class App {
             if (
                 this.parchment.hasClass('about') ||
                 this.parchment.hasClass('credits') ||
-                this.parchment.hasClass('git')
+                this.parchment.hasClass('git') ||
+                this.parchment.hasClass('completeRegist')
             ) {
                 this.parchment.removeClass('about credits git');
                 this.displayScroll('loadCharacter');
@@ -284,7 +285,7 @@ export default class App {
         } else this.parchment.removeClass(origin).addClass(destination);
     }
 
-    private displayScroll(content: string): void {
+    public displayScroll(content: string): void {
         const state = this.parchment.attr('class');
 
         if (this.game.started) {

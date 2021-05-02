@@ -163,7 +163,7 @@ export default {
             subject: '[케트람온라인] 이메일 주소 인증을 완료해주세요.',
             text: `${player.username} 님 안녕하세요.\n` +
                   `아래의 링크를 눌러 가입을 완료해주시기 바랍니다.\n\n` +
-                  `https://nekoland.online/regist/${key}`
+                  `${process.env.EMAIL_VERIFICATiON_URL}?key=${key}`
         });
 
         console.log('Message sent: %s', info.messageId);

@@ -63,7 +63,7 @@ class API {
             this.handleChat(request, response);
         });
 
-        router.get('/checkemail', (request: any, response: any) => {
+        router.get('/regist', (request: any, response: any) => {
             this.handleCheckEmail(request, response);
         });
     }
@@ -152,9 +152,17 @@ class API {
         response.json(players);
     }
 
-    
     handleCheckEmail(request: any, response: any) {
-        request.query.key
+        const key = request.query.key
+        this.world.database.vertifyEmail(key, (result, err) => {
+            if (result) {
+                return response.send('인증성공');
+            } else {
+                return response.send(err);
+            }
+
+        });
+        
     }
 
     pingHub() {

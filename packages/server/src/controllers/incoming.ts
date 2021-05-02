@@ -187,6 +187,7 @@ class Incoming {
                 } else {
                     this.database.creator.saveTemporaryPlayer(this.player, async (key: string)  => {
                         await utils.sendRegistMail(this.player, key);
+                        this.connection.sendUTF8('needvertifyemail');
                     })
                 }
                 // } else this.database.register(this.player);

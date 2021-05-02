@@ -130,16 +130,13 @@ class Creator {
             const collection = database.collection('temp_players');
             const key = util.generateRandomString(60);
             Creator.getPasswordHash(player.password, (hash) => {
+                player.password = hash
                 collection.updateOne(
                     {
                         key: key
                     },
                     { 
-                        $set: {
-                            username: player.username,
-                            password: hash,
-                            email: player.email
-                        }
+                        $set: Creator.getFullData(player)
                     },
                     {
                         upsert: true
@@ -156,6 +153,37 @@ class Creator {
                     }
                 );
             });
+        });
+
+    }
+
+    savePlayerData(data, callback) {
+        this.database.getDatabase((database) => {
+            const collection = database.collection('player_data');
+            collection.updateOne(
+                {
+                    username: data.username
+                },
+                { 
+                    $set: data
+                },
+                {
+                    upsert: true
+                },
+                (error, result) => {
+                    if (error) {
+                        log.error(
+                            `An error has occurred while saving temp_player for ${data.username}!`
+                        );
+                        callback(false)
+                    }
+                    if (!result) {
+                        log.error(`Could not save temp_player for ${data.username}!`);
+                        callback(false)
+                    }
+                    callback(true)
+                }
+            );
         });
 
     }

@@ -162,6 +162,11 @@ class Main {
                     });
 
                     break;
+                case 'delete':
+                    username = blocks.join(' ');
+                    this.world.database.delete({
+                        username
+                    })
             }
         });
     }

@@ -1441,7 +1441,6 @@ class Player extends Character {
         if (config.offlineMode || this.isGuest) return;
 
         if ((!this.questsLoaded || !this.achievementsLoaded) && !this.new) return;
-        console.log('save!!!')
         this.database.creator.save(this);
     }
 

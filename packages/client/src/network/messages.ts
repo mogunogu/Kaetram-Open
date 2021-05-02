@@ -179,6 +179,9 @@ export default class Messages {
 
                 break;
 
+            case 'needvertifyemail':
+                this.app.displayScroll('completeRegist');
+                break;
             default:
                 this.app.sendError(
                     null,

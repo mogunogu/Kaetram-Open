@@ -78,6 +78,7 @@ class MongoDB {
                 equipmentCursor.toArray().then((equipmentData) => {
                     regionsCursor.toArray().then((regionData) => {
                         if (playerData.length === 0) this.register(player);
+                        if (equipmentData.length === 0) this.register(player);
                         else {
                             let playerInfo = playerData[0],
                                 equipmentInfo = equipmentData[0],
@@ -125,14 +126,36 @@ class MongoDB {
             let playerData = database.collection('player_data'),
                 cursor = playerData.find({ username: player.username });
 
-            cursor.toArray().then((info) => {
-                if (info.length === 0) {
-                    log.notice('No player data found for ' + player.username + '. Creating user.');
-
+            cursor.toArray().then((data) => {
+                if (data.length !== 0) {
+                    // log.notice('No player data found for ' + player.username + '. Creating user.');
+                    player.email = data[0].email;
                     player.new = true;
-
-                    player.load(Creator.getFullData(player));
+                    
+                    player.load(data[0]);
                     player.intro();
+                }
+            });
+        });
+    }
+
+    vertifyEmail (key, callback) {
+        this.getDatabase((database) => {
+            const collection = database.collection('temp_players');
+            let dataCursor = collection.find({ key: key });
+            dataCursor.toArray().then((data) => {
+                if (data.length === 0) {
+                    callback(false, '인증데이터가 없습니다.')
+                } else {
+                    const player = data[0];
+                    collection.deleteOne({ key: key }).then(() => {
+                        this.creator.savePlayerData(player, (result) => {
+                            callback(result)
+                        });
+                    }).catch(() =>{
+                        callback(false, '이메일 인증에 실패하였습니다.')
+                    });
+
                 }
             });
         });
