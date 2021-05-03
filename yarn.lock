@@ -3919,6 +3919,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/underscore@npm:^1":
+  version: 1.11.2
+  resolution: "@types/underscore@npm:1.11.2"
+  checksum: 7f3fac982f790450e8f22018350fdd099358c3f0056c7ae33f8da99d5c6c97d3e73a49e9396bbb47f2aacd25ed9b5b13dab991734586cbec7658295688c6a9e4
+  languageName: node
+  linkType: hard
+
 "@types/underscore@npm:^1.11.1":
   version: 1.11.1
   resolution: "@types/underscore@npm:1.11.1"
@@ -9268,6 +9275,7 @@ fsevents@~2.3.1:
   version: 0.0.0-use.local
   resolution: "kaetram@workspace:."
   dependencies:
+    "@types/underscore": ^1
     "@typescript-eslint/eslint-plugin": ^4.22.0
     "@typescript-eslint/parser": ^4.22.0
     "@yarnpkg/pnpify": ^3.0.0-rc.3
@@ -9287,6 +9295,7 @@ fsevents@~2.3.1:
     stylelint: ^13.12.0
     ts-node: ^9.1.1
     typescript: ^4.2.4
+    underscore: ^1.13.1
   languageName: unknown
   linkType: soft
 
@@ -13945,6 +13954,13 @@ typescript@^4.2.4:
   dependencies:
     function.name: ^1.0.3
   checksum: 9bbef6a83a70e123cce6466d268ddebcb58251decec431f57c91be4b62c79511e986427b21efb47f5053e4b2e8287ecc305e8f57966517f689166490aeed51fc
+  languageName: node
+  linkType: hard
+
+"underscore@npm:^1.13.1":
+  version: 1.13.1
+  resolution: "underscore@npm:1.13.1"
+  checksum: 69bb4e6dd92c387ad322dd5b105f496fa64896d92ff1eea987610920d452667a12bca0938def4c4d60acd12da62410540fd268e7ca4f2480d89324498382fcac
   languageName: node
   linkType: hard
 

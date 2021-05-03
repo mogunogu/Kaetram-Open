@@ -35,7 +35,7 @@ export default Object.assign(config, {
     mode: 'production',
     devtool: 'source-map',
     output: {
-        path: resolve('dist')
+        path: resolve('app/www')
     },
     module: { rules },
     plugins

@@ -15,9 +15,12 @@
         "test": "yarn packages test",
         "helper": "yarn packages helper",
         "map": "yarn packages map",
-        "client": "yarn workspace @kaetram/client start --host 0.0.0.0"
+        "client": "yarn workspace @kaetram/client start --host 0.0.0.0",
+        "buildc": "yarn workspace @kaetram/client build",
+        "android": "yarn workspace @kaetram/client android"
     },
     "devDependencies": {
+        "@types/underscore": "^1",
         "@typescript-eslint/eslint-plugin": "^4.22.0",
         "@typescript-eslint/parser": "^4.22.0",
         "@yarnpkg/pnpify": "^3.0.0-rc.3",
@@ -72,5 +75,8 @@
         "rendering-engine",
         "taptapadventure",
         "tileset"
-    ]
+    ],
+    "dependencies": {
+        "underscore": "^1.13.1"
+    }
 }

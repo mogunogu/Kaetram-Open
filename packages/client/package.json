@@ -4,7 +4,8 @@
         "dev": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack serve --config webpack.dev.ts",
         "build": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack-cli --config webpack.prod.ts",
         "start": "sirv dist -p 9000 --no-logs",
-        "lint": "stylelint **/*.scss"
+        "lint": "stylelint **/*.scss",
+        "android": "cd app && cordova build"
     },
     "dependencies": {
         "gl-tiled": "^1.0.0",

@@ -16,7 +16,7 @@ export default Object.assign(config, {
     module: { rules },
     devServer: {
         host: '127.0.0.1',
-        port: 9000,
+        port: 8888,
         proxy: {
             '^/server': {
                 target: 'http://127.0.0.1:9001/server',

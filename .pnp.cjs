@@ -55,6 +55,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@types/underscore", "npm:1.11.2"],
             ["@typescript-eslint/eslint-plugin", "virtual:678c8e8916a43d8cbe10142293ff031601435843cf0ef5ec06538d0d99fcdf569f32e96c825f984291b2eab0a0e5d86b16a508c6741bc594417a0c71fa5b2e90#npm:4.22.0"],
             ["@typescript-eslint/parser", "virtual:678c8e8916a43d8cbe10142293ff031601435843cf0ef5ec06538d0d99fcdf569f32e96c825f984291b2eab0a0e5d86b16a508c6741bc594417a0c71fa5b2e90#npm:4.22.0"],
             ["@yarnpkg/pnpify", "virtual:678c8e8916a43d8cbe10142293ff031601435843cf0ef5ec06538d0d99fcdf569f32e96c825f984291b2eab0a0e5d86b16a508c6741bc594417a0c71fa5b2e90#npm:3.0.0-rc.3"],
@@ -73,7 +74,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier", "npm:2.2.1"],
             ["stylelint", "npm:13.12.0"],
             ["ts-node", "virtual:678c8e8916a43d8cbe10142293ff031601435843cf0ef5ec06538d0d99fcdf569f32e96c825f984291b2eab0a0e5d86b16a508c6741bc594417a0c71fa5b2e90#npm:9.1.1"],
-            ["typescript", "patch:typescript@npm%3A4.2.4#~builtin<compat/typescript>::version=4.2.4&hash=34ad7d"]
+            ["typescript", "patch:typescript@npm%3A4.2.4#~builtin<compat/typescript>::version=4.2.4&hash=34ad7d"],
+            ["underscore", "npm:1.13.1"]
           ],
           "linkType": "SOFT",
         }]
@@ -6093,6 +6095,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-underscore-npm-1.11.1-ead1783b77-a958e79444.zip/node_modules/@types/underscore/",
           "packageDependencies": [
             ["@types/underscore", "npm:1.11.1"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:1.11.2", {
+          "packageLocation": "./.yarn/cache/@types-underscore-npm-1.11.2-aec4a59879-7f3fac982f.zip/node_modules/@types/underscore/",
+          "packageDependencies": [
+            ["@types/underscore", "npm:1.11.2"]
           ],
           "linkType": "HARD",
         }]
@@ -12410,6 +12419,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["kaetram", "workspace:."],
+            ["@types/underscore", "npm:1.11.2"],
             ["@typescript-eslint/eslint-plugin", "virtual:678c8e8916a43d8cbe10142293ff031601435843cf0ef5ec06538d0d99fcdf569f32e96c825f984291b2eab0a0e5d86b16a508c6741bc594417a0c71fa5b2e90#npm:4.22.0"],
             ["@typescript-eslint/parser", "virtual:678c8e8916a43d8cbe10142293ff031601435843cf0ef5ec06538d0d99fcdf569f32e96c825f984291b2eab0a0e5d86b16a508c6741bc594417a0c71fa5b2e90#npm:4.22.0"],
             ["@yarnpkg/pnpify", "virtual:678c8e8916a43d8cbe10142293ff031601435843cf0ef5ec06538d0d99fcdf569f32e96c825f984291b2eab0a0e5d86b16a508c6741bc594417a0c71fa5b2e90#npm:3.0.0-rc.3"],
@@ -12428,7 +12438,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier", "npm:2.2.1"],
             ["stylelint", "npm:13.12.0"],
             ["ts-node", "virtual:678c8e8916a43d8cbe10142293ff031601435843cf0ef5ec06538d0d99fcdf569f32e96c825f984291b2eab0a0e5d86b16a508c6741bc594417a0c71fa5b2e90#npm:9.1.1"],
-            ["typescript", "patch:typescript@npm%3A4.2.4#~builtin<compat/typescript>::version=4.2.4&hash=34ad7d"]
+            ["typescript", "patch:typescript@npm%3A4.2.4#~builtin<compat/typescript>::version=4.2.4&hash=34ad7d"],
+            ["underscore", "npm:1.13.1"]
           ],
           "linkType": "SOFT",
         }]
@@ -17916,6 +17927,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["typpy", "npm:2.3.11"],
             ["function.name", "npm:1.0.13"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["underscore", [
+        ["npm:1.13.1", {
+          "packageLocation": "./.yarn/cache/underscore-npm-1.13.1-5dc02ceeaa-69bb4e6dd9.zip/node_modules/underscore/",
+          "packageDependencies": [
+            ["underscore", "npm:1.13.1"]
           ],
           "linkType": "HARD",
         }]

@@ -87,7 +87,7 @@ export default class Connection {
 
             if (!this.map) this.game.loadMap();
 
-            this.app.updateLoader('Logging in');
+            this.app.updateLoader('로그인 처리중');
 
             if (this.app.isRegistering()) {
                 const registerInfo = this.app.registerFields,
