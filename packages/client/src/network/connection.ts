@@ -602,7 +602,6 @@ export default class Connection {
                 case Packets.InventoryOpcode.Batch: {
                     const inventorySize = info.shift() as number,
                         data = info.shift() as Equipment[];
-
                     this.menu.loadInventory(inventorySize, data);
 
                     break;
@@ -635,7 +634,6 @@ export default class Connection {
                 case Packets.BankOpcode.Batch: {
                     const bankSize = info.shift() as number,
                         data = info.shift() as Slot[];
-
                     this.menu.loadBank(bankSize, data);
 
                     break;
@@ -862,6 +860,7 @@ export default class Connection {
                 }
 
                 case Packets.NPCOpcode.Bank:
+                    console.log(this.menu);
                     this.menu.bank.display();
                     break;
 

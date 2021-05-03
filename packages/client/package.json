@@ -16,6 +16,7 @@
     },
     "devDependencies": {
         "@babel/core": "^7.13.15",
+        "@babel/polyfill": "^7.12.1",
         "@babel/preset-env": "^7.13.15",
         "@kaetram/common": "workspace:packages/common",
         "@types/copy-webpack-plugin": "^6.4.1",

@@ -335,30 +335,36 @@ class Player extends Character {
     }
 
     loadInventory() {
-        if (config.offlineMode) {
-            this.inventory.loadEmpty();
-            return;
-        }
-
-        this.database.loader.getInventory(
-            this,
-            (
-                ids: Array<number>,
-                counts: Array<number>,
-                skills: Array<number>,
-                skillLevels: Array<number>
-            ) => {
-                if (ids === null || counts === null) {
-                    this.inventory.loadEmpty();
-                    return;
-                }
-
-                if (ids.length !== this.inventory.size) this.save();
-
-                this.inventory.load(ids, counts, skills, skillLevels);
-                this.inventory.check();
+        return new Promise <void>((res, rej) => {
+            if (config.offlineMode) {
+                this.inventory.loadEmpty();
+                res();
             }
-        );
+            setTimeout(() => {
+                rej(new Error("Load inventory timeout error"))
+            }, 10)
+    
+            this.database.loader.getInventory(
+                this,
+                (
+                    ids: Array<number>,
+                    counts: Array<number>,
+                    skills: Array<number>,
+                    skillLevels: Array<number>
+                ) => {
+                    if (ids === null || counts === null) {
+                        this.inventory.loadEmpty();
+                    }
+    
+                    if (ids.length !== this.inventory.size) this.save();
+    
+                    this.inventory.load(ids, counts, skills, skillLevels);
+                    this.inventory.check();
+                    res();
+                }
+            );
+        });
+
     }
 
     loadBank() {

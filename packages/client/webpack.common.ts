@@ -85,10 +85,14 @@ export const rules: RuleSetRule[] = [
     }
 ];
 
+
+
+
+
 const config: Configuration = {
     name: 'Client',
     target: 'web',
-    entry: 'index.html scss/main.scss src/main.ts'.split(' ').map((src) => resolve(src)),
+    entry: ['@babel/polyfill', ... 'index.html scss/main.scss src/main.ts'.split(' ').map((src) => resolve(src))],
     performance: {
         maxEntrypointSize: maxSize,
         maxAssetSize: maxSize
@@ -99,5 +103,6 @@ const config: Configuration = {
     module: { rules },
     plugins
 };
+
 
 export default config;

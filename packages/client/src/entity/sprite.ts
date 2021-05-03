@@ -80,11 +80,11 @@ export default class Sprite {
         this.width = sprite.width;
         this.height = sprite.height;
 
-        this.offsetX = sprite.offsetX ? sprite.offsetX: 0;
-        this.offsetY = sprite.offsetY ? sprite.offsetY: 0;
-        this.offfsetAngle = sprite.offsetAngle ? sprite.offsetAngle : 0;
+        this.offsetX = sprite.offsetX ?? -16;
+        this.offsetY = sprite.offsetY ?? -16;
+        this.offfsetAngle = sprite.offsetAngle ?? 0;
 
-        this.idleSpeed = sprite.idleSpeed ? sprite.idleSpeed: 450;
+        this.idleSpeed = sprite.idleSpeed ?? 450;
     }
 
     async update(): Promise<void> {

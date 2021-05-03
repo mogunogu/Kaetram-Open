@@ -3849,6 +3849,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@babel/polyfill", [
+        ["npm:7.12.1", {
+          "packageLocation": "./.yarn/cache/@babel-polyfill-npm-7.12.1-a393b8d870-3f59a9d85a.zip/node_modules/@babel/polyfill/",
+          "packageDependencies": [
+            ["@babel/polyfill", "npm:7.12.1"],
+            ["core-js", "npm:2.6.12"],
+            ["regenerator-runtime", "npm:0.13.7"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@babel/preset-env", [
         ["npm:7.12.7", {
           "packageLocation": "./.yarn/cache/@babel-preset-env-npm-7.12.7-8913202ac1-a0a4416c17.zip/node_modules/@babel/preset-env/",
@@ -5249,6 +5260,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@kaetram/client", "workspace:packages/client"],
             ["@babel/core", "npm:7.13.15"],
+            ["@babel/polyfill", "npm:7.12.1"],
             ["@babel/preset-env", "virtual:938eb76cb1439630a6b52a8b1d1ae7dafe67ff5ba7f6b53da410865a470c8d59feaca5be415efda2b1c9bef7b78449df38e8241ab3c1efcc178a84f7bf6a9391#npm:7.13.15"],
             ["@kaetram/common", "workspace:packages/common"],
             ["@types/copy-webpack-plugin", "npm:6.4.1"],
@@ -8637,6 +8649,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/unplugged/core-js-npm-2.6.11-15178ded27/node_modules/core-js/",
           "packageDependencies": [
             ["core-js", "npm:2.6.11"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:2.6.12", {
+          "packageLocation": "./.yarn/unplugged/core-js-npm-2.6.12-0b93d77d31/node_modules/core-js/",
+          "packageDependencies": [
+            ["core-js", "npm:2.6.12"]
           ],
           "linkType": "HARD",
         }]

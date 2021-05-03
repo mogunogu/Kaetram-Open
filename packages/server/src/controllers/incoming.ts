@@ -211,7 +211,7 @@ class Incoming {
             
     }
 
-    handleReady(message: Array<any>) {
+    async handleReady(message: Array<any>) {
         let isReady = message.shift(),
             preloadedData = message.shift(),
             userAgent = message.shift();
@@ -228,7 +228,9 @@ class Incoming {
         this.player.sendEquipment();
 
         this.player.loadProfessions();
-        this.player.loadInventory();
+        
+        await this.player.loadInventory();
+
         this.player.loadQuests();
         this.player.loadBank();
 
