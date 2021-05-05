@@ -62,10 +62,10 @@ export default class Actions {
             case 'inventory': {
                 this.body.css({
                     bottom: '10%',
-                    left: '10%'
+                    left: '45%'
                 });
 
-                const dropButton = $('<div id="drop" class="actionButton">Drop</div>');
+                const dropButton = $('<div id="drop" class="actionButton">버리기</div>');
 
                 this.add(dropButton);
 

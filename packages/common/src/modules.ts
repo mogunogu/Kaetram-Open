@@ -12,7 +12,8 @@ export enum Types {
 export enum InputType {
     Key,
     LeftClick,
-    RightClick
+    RightClick,
+    VirtualGamepad
 }
 
 export enum Actions {
@@ -104,7 +105,9 @@ export enum Keys {
     T = 84,
     I = 73,
     P = 80,
-    M = 77
+    M = 77,
+
+    Stop = 100
 }
 
 export enum AudioTypes {

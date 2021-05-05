@@ -5290,11 +5290,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["gl-tiled", "npm:1.0.0"],
             ["html-loader", "virtual:938eb76cb1439630a6b52a8b1d1ae7dafe67ff5ba7f6b53da410865a470c8d59feaca5be415efda2b1c9bef7b78449df38e8241ab3c1efcc178a84f7bf6a9391#npm:2.1.2"],
             ["html-webpack-plugin", "virtual:938eb76cb1439630a6b52a8b1d1ae7dafe67ff5ba7f6b53da410865a470c8d59feaca5be415efda2b1c9bef7b78449df38e8241ab3c1efcc178a84f7bf6a9391#npm:5.3.1"],
+            ["html-webpack-tags-plugin", "virtual:938eb76cb1439630a6b52a8b1d1ae7dafe67ff5ba7f6b53da410865a470c8d59feaca5be415efda2b1c9bef7b78449df38e8241ab3c1efcc178a84f7bf6a9391#npm:3.0.1"],
             ["illuminated", "npm:1.2.1"],
             ["jquery", "npm:3.6.0"],
             ["kaetram", "workspace:."],
             ["lodash", "npm:4.17.21"],
             ["mini-css-extract-plugin", "virtual:938eb76cb1439630a6b52a8b1d1ae7dafe67ff5ba7f6b53da410865a470c8d59feaca5be415efda2b1c9bef7b78449df38e8241ab3c1efcc178a84f7bf6a9391#npm:1.4.1"],
+            ["nipplejs", "npm:0.9.0"],
             ["postcss", "npm:8.2.10"],
             ["postcss-html", "virtual:938eb76cb1439630a6b52a8b1d1ae7dafe67ff5ba7f6b53da410865a470c8d59feaca5be415efda2b1c9bef7b78449df38e8241ab3c1efcc178a84f7bf6a9391#npm:0.36.0"],
             ["postcss-loader", "virtual:938eb76cb1439630a6b52a8b1d1ae7dafe67ff5ba7f6b53da410865a470c8d59feaca5be415efda2b1c9bef7b78449df38e8241ab3c1efcc178a84f7bf6a9391#npm:5.2.0"],
@@ -11263,6 +11265,35 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["html-webpack-tags-plugin", [
+        ["npm:3.0.1", {
+          "packageLocation": "./.yarn/cache/html-webpack-tags-plugin-npm-3.0.1-bfb34fd5b2-f5520cdcaf.zip/node_modules/html-webpack-tags-plugin/",
+          "packageDependencies": [
+            ["html-webpack-tags-plugin", "npm:3.0.1"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:938eb76cb1439630a6b52a8b1d1ae7dafe67ff5ba7f6b53da410865a470c8d59feaca5be415efda2b1c9bef7b78449df38e8241ab3c1efcc178a84f7bf6a9391#npm:3.0.1", {
+          "packageLocation": "./.yarn/__virtual__/html-webpack-tags-plugin-virtual-ab479660e4/0/cache/html-webpack-tags-plugin-npm-3.0.1-bfb34fd5b2-f5520cdcaf.zip/node_modules/html-webpack-tags-plugin/",
+          "packageDependencies": [
+            ["html-webpack-tags-plugin", "virtual:938eb76cb1439630a6b52a8b1d1ae7dafe67ff5ba7f6b53da410865a470c8d59feaca5be415efda2b1c9bef7b78449df38e8241ab3c1efcc178a84f7bf6a9391#npm:3.0.1"],
+            ["@types/html-webpack-plugin", null],
+            ["@types/webpack", null],
+            ["glob", "npm:7.1.6"],
+            ["html-webpack-plugin", "virtual:938eb76cb1439630a6b52a8b1d1ae7dafe67ff5ba7f6b53da410865a470c8d59feaca5be415efda2b1c9bef7b78449df38e8241ab3c1efcc178a84f7bf6a9391#npm:5.3.1"],
+            ["minimatch", "npm:3.0.4"],
+            ["slash", "npm:3.0.0"],
+            ["webpack", "virtual:938eb76cb1439630a6b52a8b1d1ae7dafe67ff5ba7f6b53da410865a470c8d59feaca5be415efda2b1c9bef7b78449df38e8241ab3c1efcc178a84f7bf6a9391#npm:5.33.2"]
+          ],
+          "packagePeers": [
+            "@types/html-webpack-plugin",
+            "@types/webpack",
+            "html-webpack-plugin",
+            "webpack"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["htmlparser2", [
         ["npm:3.10.1", {
           "packageLocation": "./.yarn/cache/htmlparser2-npm-3.10.1-1bc462e640-6875f7dd87.zip/node_modules/htmlparser2/",
@@ -13395,6 +13426,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/neo-async-npm-2.6.2-75d6902586-deac9f8d00.zip/node_modules/neo-async/",
           "packageDependencies": [
             ["neo-async", "npm:2.6.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["nipplejs", [
+        ["npm:0.9.0", {
+          "packageLocation": "./.yarn/cache/nipplejs-npm-0.9.0-4421707105-47c6dae299.zip/node_modules/nipplejs/",
+          "packageDependencies": [
+            ["nipplejs", "npm:0.9.0"]
           ],
           "linkType": "HARD",
         }]

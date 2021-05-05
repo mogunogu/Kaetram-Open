@@ -10,6 +10,7 @@ import Profile from '../menu/profile/profile';
 import Shop from '../menu/shop';
 import Warp from '../menu/warp';
 
+
 import type Equipment from '../entity/character/player/equipment/equipment';
 import type Game from '../game';
 import type Slot from '../menu/container/slot';
@@ -116,6 +117,8 @@ export default class MenuController {
     public loadHeader(): void {
         this.header ||= new Header(this.game);
     }
+
+
 
     private loadNotifications(): void {
         const ok = $('#ok'),

@@ -38,6 +38,8 @@ import Warp from './warp';
 import Doors from './doors';
 import Friends from './friends';
 import config from '../../../../../config';
+import { threadId } from 'node:worker_threads';
+import Item from '../../objects/item';
 
 class Player extends Character {
     public world: World;
@@ -150,6 +152,8 @@ class Player extends Character {
     public inventoryOpen: boolean;
     public warpOpen: boolean;
 
+    public isAutoMode : boolean;
+
     public selectedShopItem: any;
 
     public deathCallback: Function;
@@ -233,6 +237,8 @@ class Player extends Character {
         this.lightsLoaded = [];
 
         this.npcTalk = null;
+
+        this.isAutoMode = false;
     }
 
     load(data: any) {
@@ -272,6 +278,8 @@ class Player extends Character {
         this.setPendant(pendant[0], pendant[1], pendant[2], pendant[3]);
         this.setRing(ring[0], ring[1], ring[2], ring[3]);
         this.setBoots(boots[0], boots[1], boots[2], boots[3]);
+
+        this.loadAutoBattle();
     }
 
     destroy() {
@@ -515,7 +523,7 @@ class Player extends Character {
 
             this.updateRegion();
 
-            this.popup('Level Up!', `Congratulations, you are now level ${this.level}!`, '#ff6600');
+            this.popup('레벨 업!', `축하합니다 ${this.level}레벨이 되셨습니다!!`, '#ff6600');
         }
 
         let data: any = {
@@ -1049,6 +1057,11 @@ class Player extends Character {
         };
     }
 
+    toggleAutoBattle() {
+        this.target = null;
+        this.isAutoMode = !this.isAutoMode
+    }
+
     loadRegion(regionId: string) {
         this.regionsLoaded.push(regionId);
     }
@@ -1456,6 +1469,47 @@ class Player extends Character {
 
     hasAggressionTimer() {
         return new Date().getTime() - this.lastRegionChange < 1200000; // 20 Minutes
+    }
+
+    loadAutoBattle() {
+        const maxDistance = 7;
+        setInterval(() => {
+            try {
+                if (!this.isAutoMode) return;
+                if (this.target) return;
+
+                if (this.getHitPoints() < this.getMaxHitPoints() / 2) {
+                    const flask = Items.stringToId('flask');
+                    if (this.inventory.contains(flask)) {
+                        this.inventory.remove(flask, 1);
+                        this.eat(flask);
+                    }
+                }
+
+                let region = this.world.region.regions[this.region];
+
+                if (!region) return;
+                let item = null;
+                const result: Character | undefined = _.reduce(region.entities, (result: Character | undefined , character: Character) => {
+                    if (character && character.type === 'mob' && this.isNear(character, maxDistance)) {
+                        if (!result) return character;
+                        
+                        if (this.getDistance(character) < this.getDistance(result)) return character;
+                        
+                        return result
+                    }
+                    if (result && result.type === 'mob') return result;
+
+                });
+
+                if (result) {
+                    if (item?.isItem()) this.setPosition(item.x, item.y)
+                    if (this.isNear(result, maxDistance)) this.combat.begin(result);
+                }
+            } catch (error) {
+                log.info('auto battle error' + error.message)
+            }
+        }, 2000)
     }
 
     onOrientation(callback: Function) {

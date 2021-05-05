@@ -1407,76 +1407,76 @@
 
     #chatButton {
         position: relative;
-        width: 28px;
-        height: 30px;
-        background: url('../img/2/maintwo.png') no-repeat -392px -628px;
+        width: 42px;
+        height: 45px;
+        background: url('../img/3/maintwo.png') no-repeat -588px -942px;
 
         &:hover {
-            background-position-x: -420px;
+            background: url('../img/3/maintwo.png') no-repeat -630px -942px;
         }
 
         &.active {
-            background-position-x: -448px;
+            background: url('../img/3/maintwo.png') no-repeat -672px -942px;
         }
     }
 
     #inventoryButton {
         position: relative;
-        width: 28px;
-        height: 30px;
-        background: url('../img/2/main.png') no-repeat -392px -628px;
+        width: 42px;
+        height: 45px;
+        background: url('../img/3/main.png') no-repeat -588px -942px;
 
         &:hover {
-            background-position-x: -420px;
+            background: url('../img/3/main.png') no-repeat -630px -942px;
         }
 
         &.active {
-            background-position-x: -448px;
+            background: url('../img/3/main.png') no-repeat -672px -942px;
         }
     }
 
     #profileButton {
         position: relative;
-        width: 28px;
-        height: 30px;
-        background: url('../img/2/main.png') no-repeat -476px -628px;
+        width: 42px;
+        height: 45px;
+        background: url('../img/3/main.png') no-repeat -714px -942px;
 
         &:hover {
-            background-position-x: -504px;
+            background: url('../img/3/main.png') no-repeat -756px -942px;
         }
 
         &.active {
-            background-position-x: -532px;
+            background: url('../img/3/main.png') no-repeat -798px -942px;
         }
     }
 
     #settingsButton {
         position: relative;
-        width: 28px;
-        height: 30px;
-        background: url('../img/2/main.png') no-repeat -812px -628px;
+        width: 42px;
+        height: 45px;
+        background: url('../img/3/main.png') no-repeat -1218px -942px;
 
         &:hover {
-            background-position-x: -840px;
+            background: url('../img/3/main.png') no-repeat -1260px -942px;
         }
 
         &.active {
-            background-position-x: -868px;
+            background: url('../img/3/main.png') no-repeat -1302px -942px;
         }
     }
 
     #warpButton {
         position: relative;
-        width: 28px;
-        height: 30px;
-        background: url('../img/2/main.png') no-repeat -644px -628px;
+        width: 42px;
+        height: 45px;
+        background: url('../img/3/main.png') no-repeat -966px -942px;
 
         &:hover {
-            background-position-x: -672px;
+            background: url('../img/3/main.png') no-repeat -1008px -942px;
         }
 
         &.active {
-            background-position-x: -700px;
+            background: url('../img/3/main.png') no-repeat -1050px -942px;
         }
     }
 
@@ -2126,61 +2126,76 @@
 @media only screen and (--sm) {
     #chatButton {
         position: relative;
-        width: 28px;
-        height: 30px;
-        background: url('../img/2/maintwo.png') no-repeat -392px -628px;
+        width: 42px;
+        height: 45px;
+        background: url('../img/3/maintwo.png') no-repeat -588px -942px;
 
         &:hover {
-            background-position-x: -420px;
+            background: url('../img/3/maintwo.png') no-repeat -630px -942px;
         }
 
         &.active {
-            background-position-x: -448px;
+            background: url('../img/3/maintwo.png') no-repeat -672px -942px;
+        }
+    }
+
+    #inventoryButton {
+        position: relative;
+        width: 42px;
+        height: 45px;
+        background: url('../img/3/main.png') no-repeat -588px -942px;
+
+        &:hover {
+            background: url('../img/3/main.png') no-repeat -630px -942px;
+        }
+
+        &.active {
+            background: url('../img/3/main.png') no-repeat -672px -942px;
         }
     }
 
     #profileButton {
         position: relative;
-        width: 28px;
-        height: 30px;
-        background: url('../img/2/main.png') no-repeat -476px -628px;
+        width: 42px;
+        height: 45px;
+        background: url('../img/3/main.png') no-repeat -714px -942px;
 
         &:hover {
-            background-position-x: -504px;
+            background: url('../img/3/main.png') no-repeat -756px -942px;
         }
 
         &.active {
-            background-position-x: -532px;
+            background: url('../img/3/main.png') no-repeat -798px -942px;
         }
     }
 
     #settingsButton {
         position: relative;
-        width: 28px;
-        height: 30px;
-        background: url('../img/2/main.png') no-repeat -812px -628px;
+        width: 42px;
+        height: 45px;
+        background: url('../img/3/main.png') no-repeat -1218px -942px;
 
         &:hover {
-            background-position-x: -840px;
+            background: url('../img/3/main.png') no-repeat -1260px -942px;
         }
 
         &.active {
-            background-position-x: -868px;
+            background: url('../img/3/main.png') no-repeat -1302px -942px;
         }
     }
 
     #warpButton {
         position: relative;
-        width: 28px;
-        height: 30px;
-        background: url('../img/2/main.png') no-repeat -644px -628px;
+        width: 42px;
+        height: 45px;
+        background: url('../img/3/main.png') no-repeat -966px -942px;
 
         &:hover {
-            background-position-x: -672px;
+            background: url('../img/3/main.png') no-repeat -1008px -942px;
         }
 
         &.active {
-            background-position-x: -700px;
+            background: url('../img/3/main.png') no-repeat -1050px -942px;
         }
     }
 
@@ -2493,7 +2508,7 @@
     #attackInfo {
         width: 100px;
         height: 25px;
-        top: 0;
+        top: 10px;
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         border: 2px solid #373737;
@@ -2752,7 +2767,9 @@
     }
 
     #buttons {
+        top: 0;
         right: 30px;
+        height: 60px;
     }
 
     #inventory {
@@ -2767,4 +2784,23 @@
         margin-left: 1px;
         margin-top: -7px;
     }
+}
+
+#gamepad {
+    left: 0;
+    bottom: 0;
+    width: 25%;
+    height: 40%;
+    position: absolute;
+}
+
+#interactionButton {
+    position: absolute;
+    right: 35px;
+    bottom: 30px;
+    width: 100px;
+    height: 100px;
+    background: #e2252561;
+    border-radius: 50%;
+    z-index: 1000;
 }

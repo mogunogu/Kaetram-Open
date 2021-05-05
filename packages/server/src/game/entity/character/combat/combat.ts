@@ -177,6 +177,8 @@ class Combat {
         if (this.isPlayer()) {
             if (!this.character.hasTarget()) return;
 
+            if (!this.character.isRanged()) this.sendFollow();
+
             if (this.character.target.type !== 'player') return;
 
             if (!this.inProximity()) this.follow(this.character, this.character.target);

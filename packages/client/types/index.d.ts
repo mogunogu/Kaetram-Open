@@ -11,8 +11,13 @@ interface InsomniaPhoneGapPlugin {
 interface CordovaPlugin {
     insomnia : InsomniaPhoneGapPlugin
 }
+
+interface Cordova {
+    plugins : CordovaPlugin
+}
 declare global {
     interface Window {
-        plugins : CordovaPlugin
+
+        cordova : Cordova
     }
   }

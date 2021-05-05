@@ -408,7 +408,7 @@ class Incoming {
                 if (this.player.stunned || !this.preventNoClip(x, y)) return;
 
                 this.player.setPosition(x, y);
-
+                
                 break;
 
             case Packets.MovementOpcode.Stop:
@@ -587,6 +587,19 @@ class Incoming {
 
                 if (target.combat) target.combat.addAttacker(attacker);
 
+                break;
+            case Packets.CombatOpcode.AutoCombat:
+                let player = this.world.getEntityByInstance(message.shift()) as Player | null;
+                
+                if (player) {
+                    player.toggleAutoBattle()
+                    const onOffText = this.player.isAutoMode ? 'On' : 'Off';
+                    this.player.send(
+                        new Messages.Notification(Packets.NotificationOpcode.Text, {
+                            message: '오토모드' + onOffText
+                        })
+                    );
+                }
                 break;
         }
     }

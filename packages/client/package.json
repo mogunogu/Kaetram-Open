@@ -3,7 +3,7 @@
     "scripts": {
         "dev": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack serve --config webpack.dev.ts",
         "build": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json webpack-cli --config webpack.prod.ts",
-        "start": "sirv dist -p 9000 --no-logs",
+        "start": "sirv app/www -p 9000 --no-logs",
         "lint": "stylelint **/*.scss",
         "android": "cd app && cordova build"
     },
@@ -12,6 +12,7 @@
         "illuminated": "^1.2.1",
         "jquery": "^3.6.0",
         "lodash": "^4.17.21",
+        "nipplejs": "^0.9.0",
         "socket.io-client": "^4.0.1"
     },
     "devDependencies": {
@@ -45,6 +46,7 @@
         "file-loader": "^6.2.0",
         "html-loader": "^2.1.2",
         "html-webpack-plugin": "^5.3.1",
+        "html-webpack-tags-plugin": "^3.0.1",
         "kaetram": "workspace:.",
         "mini-css-extract-plugin": "^1.4.1",
         "postcss": "^8.2.10",

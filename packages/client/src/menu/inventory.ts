@@ -102,11 +102,11 @@ export default class Inventory {
 
         this.actions.loadDefaults('inventory');
 
-        if (slot.edible) this.actions.add($('<div id="eat" class="actionButton">Eat</div>'));
+        if (slot.edible) this.actions.add($('<div id="eat" class="actionButton">먹기</div>'));
         else if (slot.equippable)
-            this.actions.add($('<div id="wield" class="actionButton">Wield</div>'));
+            this.actions.add($('<div id="wield" class="actionButton">장비</div>'));
         else if (slot.count > 999999)
-            this.actions.add($('<div id="itemInfo" class="actionButton">Info</div>'));
+            this.actions.add($('<div id="itemInfo" class="actionButton">정보</div>'));
 
         if (!this.actions.isVisible()) this.actions.show();
 

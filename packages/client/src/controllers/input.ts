@@ -6,6 +6,9 @@ import log from '../lib/log';
 import Actions from '../menu/actions';
 import Chat from './chat';
 import Overlay from './overlay';
+import nipplejs from 'nipplejs';
+import * as Detect from '../utils/detect';
+import $ from 'jquery';
 
 import type Character from '../entity/character/character';
 import type Player from '../entity/character/player/player';
@@ -65,17 +68,110 @@ export default class InputController {
     chatHandler!: Chat;
     overlay!: Overlay;
     entity!: Entity | undefined;
+    target!: Entity | undefined;
+
+    private interactionButton = $('#interactionButton');
 
     constructor(public game: Game) {
         this.load();
     }
 
     load(): void {
+        this.loadController();
         this.targetAnimation = new Animation('move', 4, 0, 16, 16);
         this.targetAnimation.setSpeed(50);
 
         this.chatHandler = new Chat(this.game);
         this.overlay = new Overlay(this);
+    }
+
+    public loadController(): void {
+        if (!Detect.isMobile()) return;
+
+        const manager = nipplejs.create({
+            zone: document.getElementById('gamepad'),
+            mode: 'static',
+            position: {left: '60%', bottom: '60%'},
+            color: 'red',
+            size: 150
+        });
+
+        manager.on('dir:down', (evt, nipple) => {
+            this.handle(Modules.InputType.VirtualGamepad, Modules.Keys.Down)
+        });
+
+        manager.on('dir:up', (evt, nipple) => {
+            this.handle(Modules.InputType.VirtualGamepad, Modules.Keys.Up)
+        });
+
+        manager.on('dir:left', (evt, nipple) => {
+            this.handle(Modules.InputType.VirtualGamepad, Modules.Keys.Left)
+        });
+
+        manager.on('dir:right', (evt, nipple) => {
+            this.handle(Modules.InputType.VirtualGamepad, Modules.Keys.Right)
+        });
+
+        manager.on('end', (evt, nipple) => {
+            this.handle(Modules.InputType.VirtualGamepad, Modules.Keys.Stop)
+        });
+        
+        this.interactionButton.on('click', () => {
+            const player = this.getPlayer();
+            
+
+            this.game.socket?.send(Packets.Combat, [
+                Packets.CombatOpcode.AutoCombat,
+                player.id
+            ]);
+
+            return;
+
+            if (this.entity) {
+                if (!this.entity.hitPoints) {
+                    this.entity = null;
+                    this.overlay.update(this.entity);
+                    return;
+                }
+                this.overlay.update(this.entity);
+    
+                this.setAttackTarget();
+    
+                if (this.isTargetable(this.entity)) player.setTarget(this.entity);
+    
+                if (
+                    player.getDistance(this.entity) < 7 &&
+                    player.isRanged() &&
+                    this.isAttackable(this.entity)
+                ) {
+                    this.game.socket?.send(Packets.Target, [
+                        Packets.TargetOpcode.Attack,
+                        this.entity.id
+                    ]);
+                    player.lookAt(this.entity);
+                    return;
+                }
+    
+                if (this.entity.gridX === player.gridX && this.entity.gridY === player.gridY)
+                    this.game.socket?.send(Packets.Target, [
+                        Packets.TargetOpcode.Attack,
+                        this.entity.id
+                    ]);
+    
+                if (this.isTargetable(this.entity)) {
+                    player.follow(this.entity as Character);
+                    return;
+                }
+            }
+    
+            player.removeTarget();
+
+            if (this.entity) {
+                player.go(this.entity.x, this.entity.y);
+            }
+            
+
+        })
     }
 
     loadCursors(): void {
@@ -97,10 +193,10 @@ export default class InputController {
 
     handle(inputType: Modules.InputType, data: Modules.Keys | JQuery.Event): void {
         const player = this.getPlayer();
-
         switch (inputType) {
             case Modules.InputType.Key:
                 if (this.chatHandler.isActive()) {
+
                     this.chatHandler.key(data as Modules.Keys);
                     return;
                 }
@@ -185,15 +281,58 @@ export default class InputController {
                     ]);
                     return;
                 }
-
-                this.leftClick(this.getCoords());
-
+                this.leftClick(this.getCoords())
                 break;
 
             case Modules.InputType.RightClick:
                 this.rightClick(this.getCoords());
 
                 break;
+                
+            case Modules.InputType.VirtualGamepad:
+                player.disableAction = false;
+                switch (data) {
+                    case Modules.Keys.W:
+                    case Modules.Keys.Up:
+
+                        player.moveUp = true;
+                        player.moveDown = false;
+                        player.moveLeft = false;
+                        player.moveRight = false;
+                        break;
+
+                    case Modules.Keys.A:
+                    case Modules.Keys.Left:
+                        player.moveUp = false;
+                        player.moveDown = false;
+                        player.moveLeft = true;
+                        player.moveRight = false;
+
+                        break;
+
+                    case Modules.Keys.S:
+                    case Modules.Keys.Down:
+                        player.moveUp = false;
+                        player.moveDown = true;
+                        player.moveLeft = false;
+                        player.moveRight = false;
+
+                        break;
+
+                    case Modules.Keys.D:
+                    case Modules.Keys.Right:
+                        player.moveUp = false;
+                        player.moveDown = false;
+                        player.moveLeft = false;
+                        player.moveRight = true;
+                        break;
+                    case Modules.Keys.Stop:
+                        player.moveUp = false;
+                        player.moveDown = false;
+                        player.moveLeft = false;
+                        player.moveRight = false;
+                        break;
+                }
         }
     }
 
@@ -242,7 +381,6 @@ export default class InputController {
 
     keyMove(position: Pos): void {
         const player = this.getPlayer();
-
         if (!player.hasPath()) {
             this.keyMovement = true;
             this.cursorMoved = false;
@@ -251,13 +389,13 @@ export default class InputController {
             log.debug(position);
             log.debug('---------------');
 
-            this.leftClick(position, true);
+            this.moveToTarget(position, true);
         }
     }
 
-    leftClick(position: Pos | undefined, keyMovement?: boolean): void {
+    leftClick (position: Pos | undefined): void {
+        
         const player = this.getPlayer();
-
         if (player.stunned || !position) return;
 
         this.setPassiveTarget();
@@ -275,7 +413,6 @@ export default class InputController {
             this.chatHandler.hideInput();
 
         if (this.map?.isOutOfBounds(position.x, position.y)) return;
-
         if (this.game.zoning?.direction || player.disableAction) return;
 
         this.game.menu?.hideAll();
@@ -287,7 +424,7 @@ export default class InputController {
             return;
         }
 
-        if (this.renderer?.mobile || keyMovement)
+        if (this.renderer?.mobile)
             this.entity = this.game.getEntityAt(
                 position.x,
                 position.y,
@@ -295,33 +432,92 @@ export default class InputController {
             );
 
         if (this.entity) {
+            this.overlay.update(this.entity);
+            this.setAttackTarget();
+
+            // if (this.isTargetable(this.entity)) player.setTarget(this.entity);
+
+            // if (
+            //     player.getDistance(this.entity) < 7 &&
+            //     player.isRanged() &&
+            //     this.isAttackable(this.entity)
+            // ) {
+            //     this.game.socket?.send(Packets.Target, [
+            //         Packets.TargetOpcode.Attack,
+            //         this.entity.id
+            //     ]);
+            //     player.lookAt(this.entity);
+            //     return;
+            // }
+
+            // if (this.entity.gridX === player.gridX && this.entity.gridY === player.gridY)
+            //     this.game.socket?.send(Packets.Target, [
+            //         Packets.TargetOpcode.Attack,
+            //         this.entity.id
+            //     ]);
+
+            // if (this.isTargetable(this.entity)) {
+            //     player.follow(this.entity as Character);
+            //     return;
+            // }
+        }
+
+    }
+
+    moveToTarget(position: Pos | undefined, keyMovement?: boolean): void {
+        const player = this.getPlayer();
+        if (player.stunned || !position) return;
+
+        this.setPassiveTarget();
+
+        /**
+         * It can be really annoying having the chat open
+         * on mobile, and it is far harder to control.
+         */
+
+        if (
+            this.renderer?.mobile &&
+            this.chatHandler.input.is(':visible') &&
+            this.chatHandler.input.val() === ''
+        )
+            this.chatHandler.hideInput();
+
+        if (this.map?.isOutOfBounds(position.x, position.y)) return;
+        if (this.game.zoning?.direction || player.disableAction) return;
+
+        this.game.menu?.hideAll();
+
+        if (this.map?.isObject(position.x, position.y)) {
+            player.setObjectTarget(position.x, position.y);
+            player.followPosition(position.x, position.y);
+            return;
+        }
+
+
+
+        const nextEntity = this.game.getEntityAt(
+                position.x,
+                position.y,
+                position.x === player.gridX && position.y === player.gridY
+            );
+
+        if (nextEntity) {
+            this.overlay.update(nextEntity);
             player.disableAction = true;
 
             this.setAttackTarget();
 
-            if (this.isTargetable(this.entity)) player.setTarget(this.entity);
+            if (this.isTargetable(nextEntity)) player.setTarget(nextEntity);
 
-            if (
-                player.getDistance(this.entity) < 7 &&
-                player.isRanged() &&
-                this.isAttackable(this.entity)
-            ) {
+
+            if (nextEntity.gridX === player.gridX && nextEntity.gridY === player.gridY)
                 this.game.socket?.send(Packets.Target, [
                     Packets.TargetOpcode.Attack,
-                    this.entity.id
-                ]);
-                player.lookAt(this.entity);
-                return;
-            }
-
-            if (this.entity.gridX === player.gridX && this.entity.gridY === player.gridY)
-                this.game.socket?.send(Packets.Target, [
-                    Packets.TargetOpcode.Attack,
-                    this.entity.id
+                    nextEntity.id
                 ]);
 
-            if (this.isTargetable(this.entity)) {
-                player.follow(this.entity as Character);
+            if (this.isTargetable(nextEntity)) {
+                player.follow(nextEntity as Character);
                 return;
             }
         }
@@ -372,11 +568,11 @@ export default class InputController {
         if (!position) return;
 
         // The entity we are currently hovering over.
-        this.entity = this.game.getEntityAt(position.x, position.y, this.isSamePosition(position));
+        this.target = this.game.getEntityAt(position.x, position.y, this.isSamePosition(position));
 
-        this.overlay.update(this.entity);
+        // this.overlay.update(this.entity);
 
-        if (!this.entity || this.entity.id === player.id)
+        if (!this.target || this.target.id === player.id)
             if (this.map?.isObject(position.x, position.y)) {
                 const cursor = this.map.getTileCursor(position.x, position.y) as Cursors;
 
@@ -387,7 +583,7 @@ export default class InputController {
                 this.hovering = null;
             }
         else
-            switch (this.entity.type) {
+            switch (this.target.type) {
                 case 'item':
                 case 'chest':
                     this.setCursor(this.cursors['loot']);
@@ -405,7 +601,7 @@ export default class InputController {
                     break;
 
                 case 'player':
-                    if (this.entity.pvp && this.game.pvp) {
+                    if (this.target.pvp && this.game.pvp) {
                         this.setCursor(this.getAttackCursor());
                         this.hovering = Modules.Hovering.Player;
                     }
@@ -518,4 +714,8 @@ export default class InputController {
     getActions(): Actions {
         return this.game.menu?.actions as Actions;
     }
+
+
+
+
 }

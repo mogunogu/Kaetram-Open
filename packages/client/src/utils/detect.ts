@@ -48,10 +48,12 @@ export const androidVersion = (): number | undefined => {
     if (userAgent.length > 1) return parseFloat(userAgent[1].split(';')[0]);
 };
 
-export const supportsWebGL = (): boolean =>
-    // const canvas = document.createElement('canvas'),
-    //     gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-    false;
+export const supportsWebGL = (): boolean => {
+    return false;
+    const canvas = document.createElement('canvas'),
+        gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    return !!gl;
+}
 
 export function isAppleDevice(): boolean {
     const devices = [

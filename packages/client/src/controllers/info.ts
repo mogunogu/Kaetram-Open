@@ -93,7 +93,7 @@ export default class InfoController {
 
             case Modules.Hits.LevelUp: {
                 const lId = this.generateId(this.game.time, -1, x, y),
-                    levelSplat = new Splat(lId, type, 'Level Up!', x, y, false),
+                    levelSplat = new Splat(lId, type, '레벨 업!', x, y, false),
                     lColour = Modules.DamageColours.exp;
 
                 levelSplat.setColours(lColour.fill, lColour.stroke);

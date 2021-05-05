@@ -1,176 +1,285 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no"
+        />
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no" />
+        <!-- Meta -->
+        <meta
+            name="description"
+            content="An open-source 2D HTML5 adventure based off BrowserQuest (BQ). Kaetram is created to help those interested in game development, and to provide a fun experience."
+        />
+        <meta name="robots" content="index, follow" />
+        <link
+            rel="sitemap"
+            type="application/xml"
+            title="Sitemap"
+            href="https://kaetram.com/sitemap.xml"
+        />
+        <meta name="author" content="Veradictus" />
+        <meta name="image" content="https://kaetram.com/icon.png" />
+        <meta name="language" content="English" />
 
-    <!-- Meta -->
-    <meta name="description" content="An open-source 2D HTML5 adventure based off BrowserQuest (BQ). Kaetram is created to help those interested in game development, and to provide a fun experience." />
-    <meta name="robots" content="index, follow" />
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://kaetram.com/sitemap.xml" />
-    <meta name="author" content="Veradictus" />
-    <meta name="image" content="https://kaetram.com/icon.png" />
-    <meta name="language" content="English" />
+        <!-- Open Graph Protocol -->
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content="https://kaetram.com/" />
+        <meta property="og:type" content="game" />
+        <meta property="og:title" content="Kaetram" />
+        <meta property="og:site_name" content="Kaetram" />
+        <meta
+            property="og:description"
+            content="An open-source 2D HTML5 adventure based off BrowserQuest (BQ). Kaetram is created to help those interested in game development, and to provide a fun experience."
+        />
+        <meta property="og:image" content="https://kaetram.com/icon.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="192" />
+        <meta property="og:image:height" content="192" />
+        <meta property="og:image:alt" content="Kaetram Logo" />
 
-    <!-- Open Graph Protocol -->
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content="https://kaetram.com/" />
-    <meta property="og:type" content="game" />
-    <meta property="og:title" content="Kaetram" />
-    <meta property="og:site_name" content="Kaetram" />
-    <meta property="og:description" content="An open-source 2D HTML5 adventure based off BrowserQuest (BQ). Kaetram is created to help those interested in game development, and to provide a fun experience." />
-    <meta property="og:image" content="https://kaetram.com/icon.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="192" />
-    <meta property="og:image:height" content="192" />
-    <meta property="og:image:alt" content="Kaetram Logo" />
+        <!-- Google -->
+        <meta itemprop="name" content="Kaetram" />
+        <meta
+            itemprop="description"
+            content="An open-source 2D HTML5 adventure based off BrowserQuest (BQ). Kaetram is created to help those interested in game development, and to provide a fun experience."
+        />
+        <meta itemprop="image" content="https://kaetram.com/icon.png" />
 
-    <!-- Google -->
-    <meta itemprop="name" content="Kaetram" />
-    <meta itemprop="description" content="An open-source 2D HTML5 adventure based off BrowserQuest (BQ). Kaetram is created to help those interested in game development, and to provide a fun experience." />
-    <meta itemprop="image" content="https://kaetram.com/icon.png" />
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Kaetram" />
+        <meta
+            name="twitter:description"
+            content="An open-source 2D HTML5 adventure based off BrowserQuest (BQ). Kaetram is created to help those interested in game development, and to provide a fun experience."
+        />
+        <meta name="twitter:image:src" content="https://kaetram.com/icon.png" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Kaetram" />
-    <meta name="twitter:description" content="An open-source 2D HTML5 adventure based off BrowserQuest (BQ). Kaetram is created to help those interested in game development, and to provide a fun experience." />
-    <meta name="twitter:image:src" content="https://kaetram.com/icon.png" />
+        <!-- Mobile -->
+        <meta name="format-detection" content="telephone=no" />
 
-    <!-- Mobile -->
-    <meta name="format-detection" content="telephone=no" />
+        <!-- Windows  -->
+        <meta name="msapplication-starturl" content="/?utm_source=a2hs" />
+        <meta name="msapplication-tooltip" content="Kaetram" />
+        <meta name="msapplication-tap-highlight" content="no" />
 
-    <!-- Windows  -->
-    <meta name="msapplication-starturl" content="/?utm_source=a2hs" />
-    <meta name="msapplication-tooltip" content="Kaetram" />
-    <meta name="msapplication-tap-highlight" content="no" />
+        <!-- UC Mobile Browser  -->
+        <meta name="full-screen" content="yes" />
+        <meta name="browsermode" content="application" />
 
-    <!-- UC Mobile Browser  -->
-    <meta name="full-screen" content="yes" />
-    <meta name="browsermode" content="application" />
+        <!-- Disable night mode for this page  -->
+        <meta name="nightmode" content="enable/disable" />
 
-    <!-- Disable night mode for this page  -->
-    <meta name="nightmode" content="enable/disable" />
+        <!-- Layout mode -->
+        <meta name="layoutmode" content="fitscreen/standard" />
 
-    <!-- Layout mode -->
-    <meta name="layoutmode" content="fitscreen/standard" />
+        <!-- Show image even in text only mode  -->
+        <meta name="imagemode" content="force" />
 
-    <!-- Show image even in text only mode  -->
-    <meta name="imagemode" content="force" />
+        <!-- Orientation  -->
+        <meta name="screen-orientation" content="any" />
 
-    <!-- Orientation  -->
-    <meta name="screen-orientation" content="any" />
+        <!-- Theme Colors -->
+        <meta name="msapplication-navbutton-color" content="#000000" />
 
-    <!-- Theme Colors -->
-    <meta name="msapplication-navbutton-color" content="#000000" />
-
-    <!-- JSON-LD -->
-
-    <script type="application/ld+json">
-        {
-            "@context": "http://www.schema.org",
-            "@type": "VideoGame",
-            "name": "Kaetram",
-            "alternateName": "Kaetram",
-            "url": "https://kaetram.com/",
-            "image": "https://kaetram.com/icon.png",
-            "description": "An open-source 2D HTML5 adventure based off BrowserQuest (BQ). Kaetram is created to help those interested in game development, and to provide a fun experience.",
-            "inLanguage": ["English"],
-            "operatingSystem": "ANY",
-            "applicationCategory": "https://schema.org/VideoGame",
-            "author": {
-                "@type": "Person",
-                "name": "Veradictus"
-            },
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            },
-            "genre": ["MMORPG"],
-            "audience": {
-                "@type": "PeopleAudience",
-                "suggestedMinAge": "8"
-            },
-            "numberOfPlayers": {
-                "@type": "QuantitativeValue",
-                "minValue": "0",
-                "maxValue": "200"
+        <!-- JSON-LD -->
+        <script type="text/javascript">
+            function onLoad() {
+                document.addEventListener(
+                    'deviceready',
+                    function () {
+                        window.plugins.insomnia.keepAwake();
+                    },
+                    false
+                );
             }
-        }
-    </script>
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "http://www.schema.org",
+                "@type": "VideoGame",
+                "name": "Kaetram",
+                "alternateName": "Kaetram",
+                "url": "https://kaetram.com/",
+                "image": "https://kaetram.com/icon.png",
+                "description": "An open-source 2D HTML5 adventure based off BrowserQuest (BQ). Kaetram is created to help those interested in game development, and to provide a fun experience.",
+                "inLanguage": ["English"],
+                "operatingSystem": "ANY",
+                "applicationCategory": "https://schema.org/VideoGame",
+                "author": {
+                    "@type": "Person",
+                    "name": "Veradictus"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                "genre": ["MMORPG"],
+                "audience": {
+                    "@type": "PeopleAudience",
+                    "suggestedMinAge": "8"
+                },
+                "numberOfPlayers": {
+                    "@type": "QuantitativeValue",
+                    "minValue": "0",
+                    "maxValue": "200"
+                }
+            }
+        </script>
 
-    <meta name="rating" content="General" />
+        <meta name="rating" content="General" />
 
-    <title>Kaetram</title>
-</head>
+        <title>Kaetram</title>
+    </head>
 
-<body class="intro">
-    <noscript>
+    <body class="intro" onload="onLoad()">
+        <noscript>
             <div class="alert">You must enable JavaScript to play Kaetram.</div>
         </noscript>
-    <div id="intro">
-        <!-- <h1 id="logo"></h1> -->
-        <section id="parchment" class="loadCharacter">
-            <div class="parchment-left"></div>
-            <div class="parchment-middle">
-                <article id="loadCharacter">
-                    <h1>
-                        <span class="left-ornament"></span> 케트람 온라인
-                        <span class="right-ornament"></span>
-                    </h1>
-                    <form>
-                        <input type="text" id="loginNameInput" class="stroke" name="player-name" placeholder="유저명" aria-label="Username" maxlength="32" autocomplete="username" readonly autofocus />
-                        <input type="password" id="loginPasswordInput" class="stroke" name="player-password" placeholder="패스워드" aria-label="Password" maxlength="64" autocomplete="current-password" readonly />
+        <div id="intro">
+            <!-- <h1 id="logo"></h1> -->
+            <section id="parchment" class="loadCharacter">
+                <div class="parchment-left"></div>
+                <div class="parchment-middle">
+                    <article id="loadCharacter">
+                        <h1>
+                            <span class="left-ornament"></span> 케트람 온라인
+                            <span class="right-ornament"></span>
+                        </h1>
+                        <form>
+                            <input
+                                type="text"
+                                id="loginNameInput"
+                                class="stroke"
+                                name="player-name"
+                                placeholder="유저명"
+                                aria-label="Username"
+                                maxlength="32"
+                                autocomplete="username"
+                                readonly
+                                autofocus
+                            />
+                            <input
+                                type="password"
+                                id="loginPasswordInput"
+                                class="stroke"
+                                name="player-password"
+                                placeholder="패스워드"
+                                aria-label="Password"
+                                maxlength="64"
+                                autocomplete="current-password"
+                                readonly
+                            />
 
-                        <label id="rememberMe" class="check">
+                            <label id="rememberMe" class="check">
                                 <div id="rememberMeText">아이디 저장</div>
                                 <input type="checkbox" aria-labelledby="rememberMeText" />
                                 <span class="checkmark"></span>
                             </label>
-                        <!-- <label id="guest" class="check">
+                            <!-- <label id="guest" class="check">
                                 <div id="guestText">게스트 플레이</div>
                                 <input type="checkbox" aria-labelledby="guestText" />
                                 <span class="checkmark"></span>
                         </label> -->
 
-                        <button title="Login" aria-label="Login" type="submit" id="login" disabled></button>
-                        <button title="New Account" aria-label="New Account" type="button" id="newCharacter"></button>
+                            <button
+                                title="Login"
+                                aria-label="Login"
+                                type="submit"
+                                id="login"
+                                disabled
+                            ></button>
+                            <button
+                                title="New Account"
+                                aria-label="New Account"
+                                type="button"
+                                id="newCharacter"
+                            ></button>
 
-                        <div class="validation-summary"></div>
-                    </form>
-                </article>
-                <article id="createCharacter">
-                    <h1>
-                        <span class="left-ornament"></span> 새 케릭터 생성
-                        <span class="right-ornament"></span>
-                    </h1>
-                    <form>
-                        <input type="text" id="registerNameInput" class="stroke" name="player-name" placeholder="유저명" aria-label="Username" maxlength="32" autocomplete="username" />
-                        <input type="password" id="registerPasswordInput" class="stroke" name="player-password" placeholder="패스워드" aria-label="Password" maxlength="64" autocomplete="new-password" />
-                        <input type="password" id="registerPasswordConfirmationInput" class="stroke" name="player-password2" placeholder="패스워드 확인" aria-label="Confirm Password" maxlength="64" autocomplete="new-password" />
-                        <input type="email" id="registerEmailInput" class="stroke" name="player-email" placeholder="이메일" aria-label="Email Address" maxlength="64" autocomplete="email" />
+                            <div class="validation-summary"></div>
+                        </form>
+                    </article>
+                    <article id="createCharacter">
+                        <h1>
+                            <span class="left-ornament"></span> 새 케릭터 생성
+                            <span class="right-ornament"></span>
+                        </h1>
+                        <form>
+                            <input
+                                type="text"
+                                id="registerNameInput"
+                                class="stroke"
+                                name="player-name"
+                                placeholder="유저명"
+                                aria-label="Username"
+                                maxlength="32"
+                                autocomplete="username"
+                            />
+                            <input
+                                type="password"
+                                id="registerPasswordInput"
+                                class="stroke"
+                                name="player-password"
+                                placeholder="패스워드"
+                                aria-label="Password"
+                                maxlength="64"
+                                autocomplete="new-password"
+                            />
+                            <input
+                                type="password"
+                                id="registerPasswordConfirmationInput"
+                                class="stroke"
+                                name="player-password2"
+                                placeholder="패스워드 확인"
+                                aria-label="Confirm Password"
+                                maxlength="64"
+                                autocomplete="new-password"
+                            />
+                            <input
+                                type="email"
+                                id="registerEmailInput"
+                                class="stroke"
+                                name="player-email"
+                                placeholder="이메일"
+                                aria-label="Email Address"
+                                maxlength="64"
+                                autocomplete="email"
+                            />
 
-                        <!-- <p></p> -->
+                            <!-- <p></p> -->
 
-                        <button title="Cancel" aria-label="Cancel" type="button" id="cancelButton"></button>
-                        <button title="Play" aria-label="Play" type="submit" id="play"></button>
+                            <button
+                                title="Cancel"
+                                aria-label="Cancel"
+                                type="button"
+                                id="cancelButton"
+                            ></button>
+                            <button title="Play" aria-label="Play" type="submit" id="play"></button>
 
-                        <div class="validation-summary"></div>
-                    </form>
-                </article>
-                <article id="credits">
-                    <h1>
-                        <span class="left-ornament"></span>
-                        <span class="title">Credits</span>
-                        <span class="right-ornament"></span>
-                    </h1>
-                    <p id="cDescription">
-                        <br /> Special thanks to Little Workshop for the pixel art.
-                        <br />
-                        <br /> More pixel assets by
-                        <a rel="noopener noreferrer" class="clickable" target="_blank" href="https://shikashiassets.itch.io/shikashis-fantasy-icons-pack">Shikashi</a
+                            <div class="validation-summary"></div>
+                        </form>
+                    </article>
+                    <article id="credits">
+                        <h1>
+                            <span class="left-ornament"></span>
+                            <span class="title">Credits</span>
+                            <span class="right-ornament"></span>
+                        </h1>
+                        <p id="cDescription">
+                            <br />
+                            Special thanks to Little Workshop for the pixel art.
+                            <br />
+                            <br />
+                            More pixel assets by
+                            <a
+                                rel="noopener noreferrer"
+                                class="clickable"
+                                target="_blank"
+                                href="https://shikashiassets.itch.io/shikashis-fantasy-icons-pack"
+                                >Shikashi</a
                             >
                             &amp;
                             <a
@@ -240,10 +349,14 @@
                             <span class="title"> 인증메일 전송완료 </span>
                             <span class="right-ornament"></span>
                         </h1>
-                        <p style="margin-top: 2rem">인증메일을 전송하였습니다. </p>
-                        <p style="margin-top: 5px">인증메일내용의 링크를 클릭하여 메일을 인증하시면 등록이 완료됩니다.</p>
+                        <p style="margin-top: 2rem;">인증메일을 전송하였습니다.</p>
+                        <p style="margin-top: 5px;">
+                            인증메일내용의 링크를 클릭하여 메일을 인증하시면 등록이 완료됩니다.
+                        </p>
                         <div class="close-about">
-                            <span style="margin-top: 20px">-- 아무곳이나 누르면 로그인 화면으로 돌아갑니다. --</span>
+                            <span style="margin-top: 20px;"
+                                >-- 아무곳이나 누르면 로그인 화면으로 돌아갑니다. --</span
+                            >
                         </div>
                     </article>
                     <article id="git">Structure this later</article>
@@ -275,10 +388,10 @@
                     </div>
                 </button>
             </section>
-
-
         </div>
         <div id="container">
+            <div id="gamepad"></div>
+            <div id="interactionButton"></div>
             <div id="border">
                 <div id="canvas">
                     <canvas id="background"></canvas>

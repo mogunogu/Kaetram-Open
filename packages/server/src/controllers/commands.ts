@@ -458,8 +458,8 @@ class Commands {
             case 'popup':
                 this.player.send(
                     new Messages.Notification(Packets.NotificationOpcode.Popup, {
-                        title: 'New Quest Found!',
-                        message: 'New quest has been discovered!',
+                        title: '새로운 퀘스트 발견!',
+                        message: '새로운 퀘스트를 발견하였습니다!',
                         colour: '#00000'
                     })
                 );

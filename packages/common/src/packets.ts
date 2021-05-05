@@ -88,7 +88,8 @@ enum CombatOpcode {
     Initiate,
     Hit,
     Finish,
-    Sync
+    Sync,
+    AutoCombat
 }
 
 enum ProjectileOpcode {

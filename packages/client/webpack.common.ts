@@ -5,7 +5,7 @@ import dotEnvExtended from 'dotenv-extended';
 import dotenvParseVariables from 'dotenv-parse-variables';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-
+import HtmlWebpackTagsPlugin from 'html-webpack-tags-plugin';
 import { DefinePlugin, ProgressPlugin } from 'webpack';
 import type { Configuration, RuleSetRule, WebpackPluginInstance, Compiler } from 'webpack';
 
@@ -22,6 +22,11 @@ const env = dotenvParseVariables(dotEnvExtended.load());
 
 /** Plugins for both production and development. */
 export const plugins: WebpackPluginInstance[] = [
+    new HtmlWebpackTagsPlugin({
+        // this script must be loaded before all other scripts
+        append: false,
+        tags: ['cordova.js'],
+    }),
     new DefinePlugin({
         'process.env': JSON.stringify(env)
     }),

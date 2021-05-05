@@ -3287,11 +3287,13 @@ __metadata:
     gl-tiled: ^1.0.0
     html-loader: ^2.1.2
     html-webpack-plugin: ^5.3.1
+    html-webpack-tags-plugin: ^3.0.1
     illuminated: ^1.2.1
     jquery: ^3.6.0
     kaetram: "workspace:."
     lodash: ^4.17.21
     mini-css-extract-plugin: ^1.4.1
+    nipplejs: ^0.9.0
     postcss: ^8.2.10
     postcss-html: ^0.36.0
     postcss-loader: ^5.2.0
@@ -8268,6 +8270,20 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"html-webpack-tags-plugin@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "html-webpack-tags-plugin@npm:3.0.1"
+  dependencies:
+    glob: ^7.1.6
+    minimatch: ^3.0.4
+    slash: ^3.0.0
+  peerDependencies:
+    html-webpack-plugin: ^5.0.0
+    webpack: ^5.0.0
+  checksum: f5520cdcafdf0eb03c9f557b7b3eedb30325eb7255c1735c487025ca8e599a08aa5c99dac6e0d9a6317ebfb78964aa0e5c70e062a5cce23ee28bc1dd090b6c9d
+  languageName: node
+  linkType: hard
+
 "htmlparser2@npm:^3.10.0, htmlparser2@npm:^3.3.0":
   version: 3.10.1
   resolution: "htmlparser2@npm:3.10.1"
@@ -10138,6 +10154,13 @@ fsevents@~2.3.1:
   version: 2.6.2
   resolution: "neo-async@npm:2.6.2"
   checksum: deac9f8d00eda7b2e5cd1b2549e26e10a0faa70adaa6fdadca701cc55f49ee9018e427f424bac0c790b7c7e2d3068db97f3093f1093975f2acb8f8818b936ed9
+  languageName: node
+  linkType: hard
+
+"nipplejs@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "nipplejs@npm:0.9.0"
+  checksum: 47c6dae29976d69a7d1f31763d81bf03ab8a8429f9b46247e2538e9fac8626db3771f0483f6f16e2c116ff36220ad1f21ab3b88d50599e0462076d99f5843222
   languageName: node
   linkType: hard
 

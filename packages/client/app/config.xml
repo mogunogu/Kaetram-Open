@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.kaetram.client" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name> 케트람 온라인</name>
+
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
@@ -9,6 +10,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <preference name="orientation" value="landscape"/>
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -23,9 +25,11 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <platform name="android">
+        <preference name="android-manifest/application/activity/@android:windowSoftInputMode" value="adjustPan" />
         <icon src="res/mipmap-mdpi/kaetram.png" density="ldpi" />
         <icon src="res/mipmap-mdpi/kaetram.png" density="mdpi" />
         <icon src="res/mipmap-hdpi/kaetram.png" density="hdpi" />
         <icon src="res/mipmap-xhdpi/kaetram.png" density="xhdpi" />
     </platform>
+    <plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
 </widget>

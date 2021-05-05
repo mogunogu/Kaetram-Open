@@ -20,9 +20,9 @@ export default class OverlayController {
     public constructor(private input: InputController) {}
 
     public update(entity: Entity | undefined): void {
-        if (!entity || !this.validEntity(entity)) {
+            if (!entity || !this.validEntity(entity)) {
             this.hovering = null;
-
+            
             if (this.isVisible()) this.hide();
 
             return;

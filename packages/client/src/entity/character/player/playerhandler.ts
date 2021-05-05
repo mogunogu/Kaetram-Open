@@ -128,7 +128,8 @@ export default class PlayerHandler {
 
             this.input.setPassiveTarget();
 
-            this.game.storage.setOrientation(this.player.orientation);
+            // 모든것의 원흉.. 사라져라..
+            // this.game.storage.setOrientation(this.player.orientation);
 
             this.player.moving = false;
         });

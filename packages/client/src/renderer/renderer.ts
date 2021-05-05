@@ -1377,7 +1377,6 @@ export default class Renderer {
         this.tablet = Detect.isTablet();
         this.mEdge = Detect.isEdge();
         this.webGL = Detect.supportsWebGL();
-
         // this.animateTiles = !this.mEdge;
     }
 

@@ -860,7 +860,6 @@ export default class Connection {
                 }
 
                 case Packets.NPCOpcode.Bank:
-                    console.log(this.menu);
                     this.menu.bank.display();
                     break;
 

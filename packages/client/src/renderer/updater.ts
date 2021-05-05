@@ -143,7 +143,7 @@ export default class Updater {
                 x: player.gridX,
                 y: player.gridY
             };
-
+        
         if (player.frozen) return;
 
         if (player.moveUp) position.y--;

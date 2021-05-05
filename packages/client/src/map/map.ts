@@ -57,6 +57,7 @@ export default class Map {
     tilesetsLoaded: boolean;
     mapLoaded: boolean;
     preloadedData: boolean;
+    isSynced: boolean;
     readyCallback: () => void;
 
     width: number;
@@ -90,6 +91,8 @@ export default class Map {
         this.mapLoaded = false;
 
         this.preloadedData = false;
+
+        this.isSynced = false;
 
         this.load();
 
@@ -241,8 +244,7 @@ export default class Map {
             };
 
         this.webGLMap?.glTerminate();
-
-        this.webGLMap = new glTiled.GLTilemap(map, {
+        this.webGLMap = new GLTilemap(map, {
             gl: context,
             assetCache: resources
         });
@@ -351,7 +353,9 @@ export default class Map {
     }
 
     synchronizeWebGL(): void {
-        this.loadWebGL(this.renderer.backContext as WebGLRenderingContext);
+
+        if (!this.isSynced) this.loadWebGL(this.renderer.backContext as WebGLRenderingContext);
+        this.isSynced = true;
     }
 
     loadCollisions(): void {

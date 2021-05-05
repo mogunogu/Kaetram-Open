@@ -90,7 +90,8 @@ Packets.CombatOpcode = {
     Initiate: 0,
     Hit: 1,
     Finish: 2,
-    Sync: 3
+    Sync: 3,
+    AutoCombat: 4
 };
 
 Packets.ProjectileOpcode = {
