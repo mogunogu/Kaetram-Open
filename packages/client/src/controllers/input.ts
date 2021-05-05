@@ -72,6 +72,8 @@ export default class InputController {
 
     private interactionButton = $('#interactionButton');
 
+    private autoToggleButton = $('#autoToggleButton');
+    
     constructor(public game: Game) {
         this.load();
     }
@@ -115,17 +117,20 @@ export default class InputController {
         manager.on('end', (evt, nipple) => {
             this.handle(Modules.InputType.VirtualGamepad, Modules.Keys.Stop)
         });
+
+        
+        this.autoToggleButton.on('click', () => {
+            const player = this.getPlayer();
+            this.game.socket?.send(Packets.Combat, [
+                Packets.CombatOpcode.AutoCombat,
+                player.id
+            ]);
+        });
         
         this.interactionButton.on('click', () => {
             const player = this.getPlayer();
             
 
-            this.game.socket?.send(Packets.Combat, [
-                Packets.CombatOpcode.AutoCombat,
-                player.id
-            ]);
-
-            return;
 
             if (this.entity) {
                 if (!this.entity.hitPoints) {

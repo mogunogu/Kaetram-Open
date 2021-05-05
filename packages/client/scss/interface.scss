@@ -2804,3 +2804,18 @@
     border-radius: 50%;
     z-index: 1000;
 }
+
+#autoToggleButton {
+    position: absolute;
+    right: 35px;
+    bottom: 140px;
+    width: 50px;
+    height: 50px;
+    background: #e2252561;
+    border-radius: 50%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
