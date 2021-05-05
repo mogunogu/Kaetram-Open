@@ -1489,7 +1489,6 @@ class Player extends Character {
                 let region = this.world.region.regions[this.region];
 
                 if (!region) return;
-                let item = null;
                 const result: Character | undefined = _.reduce(region.entities, (result: Character | undefined , character: Character) => {
                     if (character && character.type === 'mob' && this.isNear(character, maxDistance)) {
                         if (!result) return character;
@@ -1503,7 +1502,6 @@ class Player extends Character {
                 });
 
                 if (result) {
-                    if (item?.isItem()) this.setPosition(item.x, item.y)
                     if (this.isNear(result, maxDistance)) this.combat.begin(result);
                 }
             } catch (error) {
